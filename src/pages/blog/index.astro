@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const posts = (await getCollection('blog'))
+  .filter((post) => post.data.lang === 'en')
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout title="Blog | Dumitru">
+  <section class="py-16">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">{t('section.blog')}</h1>
+    {posts.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {posts.map((post) => (
+          <a
+            href={`/blog/${post.data.permalink}/`}
+            class="group bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-xl overflow-hidden hover:border-primary/50 transition-colors block"
+          >
+            {post.data.thumbnail && (
+              <img
+                src={post.data.thumbnail}
+                alt={post.data.title}
+                class="w-full h-48 object-cover"
+                loading="lazy"
+              />
+            )}
+            <div class="p-5">
+              <p class="text-xs text-gray-500 dark:text-dark-muted mb-2">
+                {post.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </p>
+              <h2 class="text-lg text-gray-900 dark:text-white font-semibold mb-2 group-hover:text-primary transition-colors">{post.data.title}</h2>
+              <p class="text-gray-600 dark:text-dark-muted text-sm leading-relaxed">{post.data.description}</p>
+              {post.data.tags && (
+                <div class="flex flex-wrap gap-2 mt-3">
+                  {post.data.tags.map((tag) => (
+                    <span class="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20">{tag}</span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <div class="bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-xl p-8 text-center">
+        <p class="text-gray-600 dark:text-dark-muted">{t('blog.coming')}</p>
+      </div>
+    )}
+  </section>
+</Layout>

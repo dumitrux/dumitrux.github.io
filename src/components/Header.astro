@@ -1,0 +1,95 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-dark-bg/80 backdrop-blur-md border-b border-gray-200 dark:border-dark-border transition-colors duration-300">
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <a href={lang === 'en' ? '/' : '/es/'} class="text-xl font-bold text-gray-900 dark:text-white hover:text-primary transition-colors">
+      dumitrux
+    </a>
+    <div class="flex items-center gap-3 sm:gap-6">
+      <a href="#experience" class="hidden sm:inline text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+        {t('section.experience')}
+      </a>
+      <a href="#projects" class="hidden sm:inline text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+        {t('section.personal')}
+      </a>
+      <!-- <a href="#contributions" class="hidden sm:inline text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+        {t('section.contributions')}
+      </a> -->
+      <a href={lang === 'en' ? '/blog/' : '/es/blog/'} class="px-3 py-1 text-sm font-medium rounded-md bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-colors">
+        {t('nav.blog')}
+      </a>
+      <!-- Dark mode toggle -->
+      <button
+        id="theme-toggle"
+        type="button"
+        class="p-2 rounded-lg text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-dark-card transition-colors"
+        aria-label="Toggle dark mode"
+      >
+        <!-- Moon icon (visible in dark mode) -->
+        <svg id="icon-moon" class="w-5 h-5 hidden dark:block text-indigo-300" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+        </svg>
+        <!-- Sun icon (visible in light mode) -->
+        <svg id="icon-sun" class="w-5 h-5 block dark:hidden text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+      <!-- Language dropdown -->
+      <div class="relative" id="lang-dropdown">
+        <button
+          type="button"
+          id="lang-toggle"
+          class="flex items-center gap-1 px-2 py-1 text-xs font-semibold rounded-md text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white border border-gray-300 dark:border-dark-border hover:border-primary transition-colors"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+          {lang.toUpperCase()}
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <ul
+          id="lang-menu"
+          role="listbox"
+          class="hidden absolute right-0 mt-1 w-28 rounded-md border border-gray-200 dark:border-dark-border bg-white dark:bg-dark-card shadow-lg overflow-hidden text-xs font-semibold"
+        >
+          <li>
+            <a href="/" class:list={['block px-3 py-2 transition-colors', lang === 'en' ? 'text-primary bg-primary/5' : 'text-gray-600 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-border']}>
+              English
+            </a>
+          </li>
+          <li>
+            <a href="/es/" class:list={['block px-3 py-2 transition-colors', lang === 'es' ? 'text-primary bg-primary/5' : 'text-gray-600 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-border']}>
+              Español
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script is:inline>
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+  const langToggle = document.getElementById('lang-toggle');
+  const langMenu = document.getElementById('lang-menu');
+  langToggle?.addEventListener('click', () => {
+    const open = !langMenu.classList.contains('hidden');
+    langMenu.classList.toggle('hidden', open);
+    langToggle.setAttribute('aria-expanded', String(!open));
+  });
+  document.addEventListener('click', (e) => {
+    if (!document.getElementById('lang-dropdown')?.contains(e.target)) {
+      langMenu?.classList.add('hidden');
+      langToggle?.setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>

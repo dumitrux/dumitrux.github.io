@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+
+  <!-- Git branch lines -->
+  <!-- main branch -->
+  <line x1="80" y1="200" x2="720" y2="200" stroke="#3b82f6" stroke-width="4" stroke-linecap="round"/>
+  <!-- feature branch -->
+  <path d="M200,200 Q240,120 320,120 L480,120 Q520,120 520,200" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+  <!-- release branch -->
+  <path d="M400,200 Q420,280 480,280 L600,280 Q640,280 640,200" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+  <!-- hotfix branch -->
+  <path d="M560,200 Q580,140 620,140 L680,140 Q700,140 700,200" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Commit dots on main -->
+  <circle cx="120" cy="200" r="8" fill="#3b82f6"/>
+  <circle cx="200" cy="200" r="8" fill="#3b82f6"/>
+  <circle cx="320" cy="200" r="8" fill="#3b82f6"/>
+  <circle cx="400" cy="200" r="8" fill="#3b82f6"/>
+  <circle cx="520" cy="200" r="8" fill="#3b82f6"/>
+  <circle cx="640" cy="200" r="8" fill="#3b82f6"/>
+  <circle cx="700" cy="200" r="8" fill="#3b82f6"/>
+
+  <!-- Feature commits -->
+  <circle cx="280" cy="120" r="6" fill="#10b981"/>
+  <circle cx="360" cy="120" r="6" fill="#10b981"/>
+  <circle cx="440" cy="120" r="6" fill="#10b981"/>
+
+  <!-- Release commits -->
+  <circle cx="480" cy="280" r="6" fill="#f59e0b"/>
+  <circle cx="540" cy="280" r="6" fill="#f59e0b"/>
+
+  <!-- Hotfix commit -->
+  <circle cx="640" cy="140" r="6" fill="#ef4444"/>
+
+  <!-- Labels -->
+  <text x="120" y="240" text-anchor="middle" font-family="monospace" font-size="11" fill="#94a3b8">main</text>
+  <text x="360" y="105" text-anchor="middle" font-family="monospace" font-size="11" fill="#10b981">feature</text>
+  <text x="540" y="310" text-anchor="middle" font-family="monospace" font-size="11" fill="#f59e0b">release</text>
+  <text x="650" y="130" text-anchor="middle" font-family="monospace" font-size="11" fill="#ef4444">hotfix</text>
+
+  <!-- Title -->
+  <text x="400" y="55" text-anchor="middle" font-family="system-ui,sans-serif" font-size="32" font-weight="bold" fill="white">Git Flows</text>
+  <text x="400" y="80" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#94a3b8">Branching strategies for teams</text>
+</svg>

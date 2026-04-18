@@ -1,0 +1,79 @@
+ ---
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const contributions = [
+  {
+    name: 'From MCP to Agentic AI',
+    type: lang === 'en' ? 'Talk' : 'Charla',
+    description: lang === 'en'
+      ? 'Knowledge transfer presentation for my department on Model Context Protocol and Agentic AI.'
+      : 'Presentación de transferencia de conocimiento para mi departamento sobre Model Context Protocol e IA Agéntica.',
+    url: 'https://github.com/dumitrux/mcp-demo',
+    tags: ['MCP', 'Agentic AI', 'KT'],
+  },
+  {
+    name: 'Building an Intelligent Data Platform using Azure DevOps',
+    type: lang === 'en' ? 'Talk' : 'Charla',
+    description: lang === 'en'
+      ? 'Presentation at Azure Global Spain on building intelligent data platforms with Azure DevOps.'
+      : 'Presentación en Azure Global Spain sobre la construcción de plataformas de datos inteligentes con Azure DevOps.',
+    url: null,
+    tags: ['Azure DevOps', 'Data Platform', 'Azure Global Spain'],
+  },
+  {
+    name: 'bonsaiApp — BE Challenge',
+    type: lang === 'en' ? 'Hackathon' : 'Hackathon',
+    description: lang === 'en'
+      ? 'Challenge in Catalonia: "Com pot ajudar la tecnologia les persones que se senten soles?" — How can technology help people who feel lonely?'
+      : 'Reto en Cataluña: "Com pot ajudar la tecnologia les persones que se senten soles?" — ¿Cómo puede la tecnología ayudar a las personas que se sienten solas?',
+    url: 'https://github.com/dumitrux/bonsaiApp',
+    tags: ['Social Impact', 'Hackathon'],
+  },
+  {
+    name: 'Santander X Explorer',
+    type: lang === 'en' ? 'Program' : 'Programa',
+    description: lang === 'en'
+      ? 'Studies on entrepreneurship and pre-incubation program.'
+      : 'Estudios sobre emprendimiento y programa de pre-incubación.',
+    url: null,
+    tags: ['Entrepreneurship', 'Pre-incubation'],
+  },
+];
+---
+
+<section id="contributions" class="py-12 scroll-mt-20">
+  <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">{t('section.contributions')}</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {contributions.map((item) => {
+      const content = (
+        <div class="bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-xl p-5 hover:border-primary/50 transition-colors h-full">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="px-2 py-0.5 text-xs rounded-full bg-primary/10 text-primary border border-primary/20 font-medium">
+              {item.type}
+            </span>
+            <h3 class="text-gray-900 dark:text-white font-semibold">{item.name}</h3>
+          </div>
+          <p class="text-gray-600 dark:text-dark-muted text-sm mb-3 leading-relaxed">{item.description}</p>
+          <div class="flex flex-wrap gap-2">
+            {item.tags.map((tag) => (
+              <span class="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      );
+
+      return item.url ? (
+        <a href={item.url} target="_blank" rel="noopener noreferrer" class="group block">
+          {content}
+        </a>
+      ) : (
+        <div>{content}</div>
+      );
+    })}
+  </div>
+</section>

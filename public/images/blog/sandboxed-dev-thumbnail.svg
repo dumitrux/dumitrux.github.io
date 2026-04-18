@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <rect width="400" height="200" fill="#0d1117"/>
+  <rect x="40" y="50" width="120" height="80" rx="8" fill="#161b22" stroke="#ef4444" stroke-width="2"/>
+  <rect x="55" y="65" width="90" height="10" rx="2" fill="#1f2937"/>
+  <rect x="55" y="80" width="70" height="10" rx="2" fill="#1f2937"/>
+  <text x="100" y="118" font-family="monospace" font-size="8" fill="#ef4444" text-anchor="middle">LOCAL</text>
+  <line x1="40" y1="50" x2="160" y2="130" stroke="#ef4444" stroke-width="2.5" opacity="0.7"/>
+  <line x1="160" y1="50" x2="40" y2="130" stroke="#ef4444" stroke-width="2.5" opacity="0.7"/>
+  <text x="100" y="150" font-family="monospace" font-size="8" fill="#ef4444">✗ Don't</text>
+  <rect x="240" y="50" width="120" height="80" rx="8" fill="#161b22" stroke="#10b981" stroke-width="2"/>
+  <rect x="260" y="62" width="80" height="25" rx="4" fill="#1f2937" stroke="#3b82f6" stroke-width="1"/>
+  <text x="300" y="79" font-family="monospace" font-size="8" fill="#3b82f6" text-anchor="middle">Docker</text>
+  <rect x="260" y="93" width="80" height="25" rx="4" fill="#1f2937" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="300" y="110" font-family="monospace" font-size="8" fill="#8b5cf6" text-anchor="middle">VM / Cloud</text>
+  <text x="300" y="150" font-family="monospace" font-size="8" fill="#10b981">✓ Sandbox</text>
+  <path d="M175 90 L225 90" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arr)"/>
+  <defs><marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#8b949e"/></marker></defs>
+  <text x="200" y="185" font-family="sans-serif" font-size="9" fill="#8b949e" text-anchor="middle">Docker · Codespaces · VMs · Isolation</text>
+</svg>

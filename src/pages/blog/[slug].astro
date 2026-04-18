@@ -1,0 +1,50 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts
+    .filter((post) => post.data.lang === 'en')
+    .map((post) => ({
+      params: { slug: post.data.permalink },
+      props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={`${post.data.title} | Dumitru`}>
+  <article class="py-16 max-w-3xl mx-auto">
+    <a href="/blog/" class="text-primary text-sm hover:underline mb-6 inline-block">&larr; Back to blog</a>
+
+    {post.data.thumbnail && (
+      <img
+        src={post.data.thumbnail}
+        alt={post.data.title}
+        class="w-full h-64 object-cover rounded-xl mb-8"
+      />
+    )}
+
+    <p class="text-xs text-gray-500 dark:text-dark-muted mb-3">
+      {post.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
+    </p>
+
+    <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">{post.data.title}</h1>
+    <p class="text-gray-600 dark:text-dark-muted mb-6">{post.data.description}</p>
+
+    {post.data.tags && (
+      <div class="flex flex-wrap gap-2 mb-8">
+        {post.data.tags.map((tag) => (
+          <span class="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20">{tag}</span>
+        ))}
+      </div>
+    )}
+
+    <div class="prose dark:prose-invert prose-a:text-primary max-w-none">
+      <Content />
+    </div>
+  </article>
+</Layout>

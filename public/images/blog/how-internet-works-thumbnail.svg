@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <rect width="400" height="200" fill="#0d1117"/>
+  <circle cx="80" cy="100" r="20" fill="#161b22" stroke="#3b82f6" stroke-width="2"/>
+  <text x="80" y="104" font-family="monospace" font-size="8" fill="#3b82f6" text-anchor="middle">You</text>
+  <circle cx="200" cy="70" r="16" fill="#161b22" stroke="#10b981" stroke-width="1.5"/>
+  <text x="200" y="74" font-family="monospace" font-size="7" fill="#10b981" text-anchor="middle">DNS</text>
+  <circle cx="200" cy="130" r="16" fill="#161b22" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="200" y="134" font-family="monospace" font-size="7" fill="#f59e0b" text-anchor="middle">CDN</text>
+  <rect x="280" y="60" width="60" height="80" rx="6" fill="#161b22" stroke="#8b5cf6" stroke-width="2"/>
+  <rect x="290" y="75" width="40" height="6" rx="1" fill="#8b5cf6" opacity="0.5"/>
+  <rect x="290" y="85" width="40" height="6" rx="1" fill="#8b5cf6" opacity="0.3"/>
+  <rect x="290" y="95" width="40" height="6" rx="1" fill="#8b5cf6" opacity="0.5"/>
+  <rect x="290" y="105" width="40" height="6" rx="1" fill="#8b5cf6" opacity="0.3"/>
+  <rect x="290" y="115" width="40" height="6" rx="1" fill="#8b5cf6" opacity="0.5"/>
+  <text x="310" y="140" font-family="monospace" font-size="7" fill="#8b949e" text-anchor="middle">Server</text>
+  <line x1="100" y1="90" x2="184" y2="74" stroke="#30363d" stroke-width="1.5"/>
+  <line x1="100" y1="110" x2="184" y2="126" stroke="#30363d" stroke-width="1.5"/>
+  <line x1="216" y1="75" x2="280" y2="85" stroke="#30363d" stroke-width="1.5"/>
+  <line x1="216" y1="125" x2="280" y2="110" stroke="#30363d" stroke-width="1.5"/>
+  <text x="200" y="185" font-family="sans-serif" font-size="9" fill="#8b949e" text-anchor="middle">DNS · TCP · HTTP · TLS · CDN</text>
+</svg>

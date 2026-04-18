@@ -1,0 +1,98 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const personalProjects = [
+  {
+    name: 'architectural-style-recognition',
+    description: lang === 'en'
+      ? 'Deep learning and computer vision project to recognize architectural styles. Created for my partner whose passion is architecture — before AI was cool.'
+      : 'Proyecto de deep learning y visión por computador para reconocer estilos arquitectónicos. Creado para mi pareja, apasionada de la arquitectura — antes de que la IA estuviera de moda.',
+    url: 'https://github.com/dumitrux/architectural-style-recognition',
+    tags: ['Deep Learning', 'Computer Vision', 'Python'],
+  },
+  {
+    name: 'Face2Sprite',
+    description: lang === 'en'
+      ? 'Hackathon project: a tool that converts a face image into a sprite for use in video games or pixel art.'
+      : 'Proyecto de hackathon: herramienta que convierte una imagen facial en un sprite para videojuegos o pixel art.',
+    url: 'https://github.com/dumitrux/Face2Sprite',
+    tags: ['Hackathon', 'Image Processing'],
+  },
+  {
+    name: 'navigate-MRI-with-3Dmouse',
+    description: lang === 'en'
+      ? 'Medical imaging project using a 3D mouse to navigate through MRI images in 3D Slicer.'
+      : 'Proyecto de imagen médica usando un ratón 3D para navegar imágenes MRI en 3D Slicer.',
+    url: 'https://github.com/dumitrux/navigate-MRI-with-3Dmouse',
+    tags: ['Medical Imaging', '3D Slicer'],
+  },
+  {
+    name: 'posit-team-helm-k8s',
+    description: lang === 'en'
+      ? 'Helm chart for deploying Posit Team (RStudio) on Kubernetes.'
+      : 'Chart de Helm para desplegar Posit Team (RStudio) en Kubernetes.',
+    url: 'https://github.com/dumitrux/posit-team-helm-k8s',
+    tags: ['Helm', 'Kubernetes', 'RStudio'],
+  },
+  {
+    name: 'solar-system-threejs',
+    description: lang === 'en'
+      ? 'A solar system simulation built with Three.js to learn about 3D web graphics.'
+      : 'Simulación del sistema solar con Three.js para aprender sobre gráficos 3D web.',
+    url: 'https://github.com/dumitrux/solar-system-threejs',
+    tags: ['Three.js', 'WebGL', '3D'],
+  },
+];
+---
+
+<section id="projects" class="py-12 scroll-mt-20">
+  <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">{t('section.personal')}</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {personalProjects.map((project, i) => (
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class:list={['group bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-xl p-5 hover:border-secondary/50 transition-colors block', i >= 4 && 'hidden project-extra']}
+      >
+        <div class="flex items-center gap-2 mb-2">
+          <svg class="w-4 h-4 text-gray-500 dark:text-dark-muted group-hover:text-secondary transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          <h3 class="text-gray-900 dark:text-white font-semibold group-hover:text-secondary transition-colors">{project.name}</h3>
+        </div>
+        <p class="text-gray-600 dark:text-dark-muted text-sm mb-3 leading-relaxed">{project.description}</p>
+        <div class="flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <span class="px-2 py-1 text-xs rounded-md bg-secondary/10 text-secondary border border-secondary/20">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </a>
+    ))}
+  </div>
+  {personalProjects.length > 4 && (
+    <div class="mt-6 text-center">
+      <button
+        id="projects-toggle"
+        type="button"
+        class="px-4 py-2 text-sm font-medium text-secondary border border-secondary/20 rounded-lg hover:bg-secondary/10 transition-colors"
+      >
+        {lang === 'en' ? 'View All' : 'Ver todo'}
+      </button>
+    </div>
+  )}
+</section>
+
+<script is:inline>
+  document.getElementById('projects-toggle')?.addEventListener('click', function() {
+    const extras = document.querySelectorAll('.project-extra');
+    const expanded = !extras[0]?.classList.contains('hidden');
+    extras.forEach(el => el.classList.toggle('hidden', expanded));
+    this.textContent = expanded
+      ? (document.documentElement.lang === 'es' ? 'Ver todo' : 'View All')
+      : (document.documentElement.lang === 'es' ? 'Ver menos' : 'View Less');
+  });
+</script>

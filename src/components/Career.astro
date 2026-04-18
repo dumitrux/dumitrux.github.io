@@ -1,0 +1,70 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const roles = [
+  { key: 'career.dev' as const, icon: '🚀' },
+  { key: 'career.cloud' as const, icon: '☁️' },
+  { key: 'career.data' as const, icon: '📊' },
+];
+
+const industries = [
+  { key: 'career.pharma' as const, icon: '💊' },
+  { key: 'career.insurance' as const, icon: '🛡️' },
+  { key: 'career.public' as const, icon: '🏛️' },
+];
+
+const milestones = [
+  'career.milestone1' as const,
+  'career.milestone2' as const,
+  'career.milestone3' as const,
+  'career.milestone4' as const,
+];
+---
+
+<section id="career" class="py-12">
+  <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">{t('section.career')}</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <!-- Roles -->
+    <div class="bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-xl p-5">
+      <h3 class="text-gray-900 dark:text-white font-semibold mb-4">Roles</h3>
+      <ul class="space-y-3">
+        {roles.map((role) => (
+          <li class="flex items-start gap-2 text-gray-600 dark:text-dark-muted text-sm">
+            <span class="text-lg">{role.icon}</span>
+            <span>{t(role.key)}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Industries -->
+    <div class="bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-xl p-5">
+      <h3 class="text-gray-900 dark:text-white font-semibold mb-4">{t('career.industries')}</h3>
+      <ul class="space-y-3">
+        {industries.map((ind) => (
+          <li class="flex items-start gap-2 text-gray-600 dark:text-dark-muted text-sm">
+            <span class="text-lg">{ind.icon}</span>
+            <span>{t(ind.key)}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Milestones -->
+    <div class="bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-xl p-5">
+      <h3 class="text-gray-900 dark:text-white font-semibold mb-4">{t('career.milestones')}</h3>
+      <ul class="space-y-3">
+        {milestones.map((m) => (
+          <li class="flex items-start gap-2 text-gray-600 dark:text-dark-muted text-sm">
+            <span class="text-primary">▸</span>
+            <span>{t(m)}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
