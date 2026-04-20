@@ -66,7 +66,7 @@ const searchIndex = posts.map((post) => ({
         {t('blog.allTags')}
       </button>
       {allTags.map((tag) => (
-        <button data-tag={tag} class="tag-btn px-3 py-1 text-xs rounded-full border transition-colors bg-transparent text-gray-600 dark:text-dark-muted border-gray-300 dark:border-dark-border hover:border-primary hover:text-primary">
+        <button data-tag={tag} class="tag-btn px-3 py-1 text-xs rounded-full border transition-colors bg-transparent text-gray-800 dark:text-dark-muted border-gray-300 dark:border-dark-border hover:border-primary hover:text-primary">
           {tag}
         </button>
       ))}
@@ -78,7 +78,7 @@ const searchIndex = posts.map((post) => ({
           <a
             href={`/es/blog/${post.data.permalink}/`}
             data-permalink={post.data.permalink}
-            class="blog-card group bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-xl overflow-hidden hover:border-primary/50 transition-colors block"
+            class="blog-card group bg-gray-100 dark:bg-dark-card border border-gray-300 dark:border-dark-border rounded-xl overflow-hidden hover:border-primary/50 transition-colors block"
           >
             {post.data.thumbnail && (
               <img
@@ -93,7 +93,7 @@ const searchIndex = posts.map((post) => ({
                 {post.data.date.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
               </p>
               <h2 class="text-lg text-gray-900 dark:text-white font-semibold mb-2 group-hover:text-primary transition-colors">{post.data.title}</h2>
-              <p class="text-gray-600 dark:text-dark-muted text-sm leading-relaxed">{post.data.description}</p>
+              <p class="text-gray-800 dark:text-dark-muted text-sm leading-relaxed">{post.data.description}</p>
               {post.data.tags && (
                 <div class="flex flex-wrap gap-2 mt-3">
                   {post.data.tags.map((tag) => (
@@ -106,8 +106,8 @@ const searchIndex = posts.map((post) => ({
         ))}
       </div>
     ) : (
-      <div class="bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-xl p-8 text-center">
-        <p class="text-gray-600 dark:text-dark-muted">{t('blog.coming')}</p>
+      <div class="bg-gray-100 dark:bg-dark-card border border-gray-300 dark:border-dark-border rounded-xl p-8 text-center">
+        <p class="text-gray-800 dark:text-dark-muted">{t('blog.coming')}</p>
       </div>
     )}
 

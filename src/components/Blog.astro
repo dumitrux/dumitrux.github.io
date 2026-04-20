@@ -23,7 +23,7 @@ const posts = (await getCollection('blog'))
       {posts.map((post) => (
         <a
           href={lang === 'en' ? `/blog/${post.data.permalink}/` : `/es/blog/${post.data.permalink}/`}
-          class="group bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-xl overflow-hidden hover:border-primary/50 transition-colors block"
+          class="group bg-gray-100 dark:bg-dark-card border border-gray-300 dark:border-dark-border rounded-xl overflow-hidden hover:border-primary/50 transition-colors block"
         >
           {post.data.thumbnail && (
             <img
@@ -38,7 +38,7 @@ const posts = (await getCollection('blog'))
               {post.data.date.toLocaleDateString(lang === 'en' ? 'en-GB' : 'es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
             <h3 class="text-gray-900 dark:text-white font-semibold mb-2 group-hover:text-primary transition-colors">{post.data.title}</h3>
-            <p class="text-gray-600 dark:text-dark-muted text-sm leading-relaxed line-clamp-2">{post.data.description}</p>
+            <p class="text-gray-800 dark:text-dark-muted text-sm leading-relaxed line-clamp-2">{post.data.description}</p>
             {post.data.tags && (
               <div class="flex flex-wrap gap-2 mt-3">
                 {post.data.tags.slice(0, 3).map((tag) => (
@@ -51,8 +51,8 @@ const posts = (await getCollection('blog'))
       ))}
     </div>
   ) : (
-    <div class="bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-xl p-8 text-center">
-      <p class="text-gray-600 dark:text-dark-muted">{t('blog.coming')}</p>
+    <div class="bg-gray-100 dark:bg-dark-card border border-gray-300 dark:border-dark-border rounded-xl p-8 text-center">
+      <p class="text-gray-800 dark:text-dark-muted">{t('blog.coming')}</p>
     </div>
   )}
 </section>

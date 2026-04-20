@@ -49,14 +49,14 @@ const contributions = [
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     {contributions.map((item) => {
       const content = (
-        <div class="bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-xl p-5 hover:border-primary/50 transition-colors h-full">
+        <div class="bg-gray-100 dark:bg-dark-card border border-gray-300 dark:border-dark-border rounded-xl p-5 hover:border-primary/50 transition-colors h-full">
           <div class="flex items-center gap-2 mb-2">
             <span class="px-2 py-0.5 text-xs rounded-full bg-primary/10 text-primary border border-primary/20 font-medium">
               {item.type}
             </span>
             <h3 class="text-gray-900 dark:text-white font-semibold">{item.name}</h3>
           </div>
-          <p class="text-gray-600 dark:text-dark-muted text-sm mb-3 leading-relaxed">{item.description}</p>
+          <p class="text-gray-800 dark:text-dark-muted text-sm mb-3 leading-relaxed">{item.description}</p>
           <div class="flex flex-wrap gap-2">
             {item.tags.map((tag) => (
               <span class="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20">

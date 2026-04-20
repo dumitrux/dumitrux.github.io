@@ -11,26 +11,26 @@ const t = useTranslations(lang);
       dumitrux
     </a>
     <div class="flex items-center gap-3 sm:gap-6">
-      <a href={lang === 'en' ? '/' : '/es/'} data-nav-link="home" class="hidden sm:inline text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+      <a href={lang === 'en' ? '/' : '/es/'} data-nav-link="home" class="hidden sm:inline text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
         {t('nav.home')}
       </a>
-      <a href={`${lang === 'en' ? '/' : '/es/'}#experience`} data-nav-link="experience" class="hidden sm:inline text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+      <a href={`${lang === 'en' ? '/' : '/es/'}#experience`} data-nav-link="experience" class="hidden sm:inline text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
         {t('section.experience')}
       </a>
-      <a href={`${lang === 'en' ? '/' : '/es/'}#projects`} data-nav-link="projects" class="hidden sm:inline text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+      <a href={`${lang === 'en' ? '/' : '/es/'}#projects`} data-nav-link="projects" class="hidden sm:inline text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
         {t('section.personal')}
       </a>
-      <!-- <a href="#contributions" class="hidden sm:inline text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+      <!-- <a href="#contributions" class="hidden sm:inline text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
         {t('section.contributions')}
       </a> -->
-      <a href={lang === 'en' ? '/blog/' : '/es/blog/'} data-nav-link="blog" class="hidden sm:inline text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
-        {t('nav.blog')} <span class="inline-block translate-y-[-1px]">&#8599;</span>
+      <a href={lang === 'en' ? '/blog/' : '/es/blog/'} data-nav-link="blog" class="hidden sm:inline text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+        {t('nav.blog')} <span class="inline-block translate-y-[-1px] font-normal">&#8599;&#xFE0E;</span>
       </a>
       <!-- Dark mode toggle -->
       <button
         id="theme-toggle"
         type="button"
-        class="p-2 rounded-lg text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-dark-card transition-colors"
+        class="p-2 rounded-lg text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-dark-card transition-colors"
         aria-label="Toggle dark mode"
       >
         <!-- Moon icon (visible in dark mode) -->
@@ -47,7 +47,7 @@ const t = useTranslations(lang);
         <button
           type="button"
           id="lang-toggle"
-          class="flex items-center gap-1 px-2 py-1 text-xs font-semibold rounded-md text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white border border-gray-300 dark:border-dark-border hover:border-primary transition-colors"
+          class="flex items-center gap-1 px-2 py-1 text-xs font-semibold rounded-md text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white border border-gray-300 dark:border-dark-border hover:border-primary transition-colors"
           aria-haspopup="listbox"
           aria-expanded="false"
         >
@@ -61,12 +61,12 @@ const t = useTranslations(lang);
           class="hidden absolute right-0 mt-1 w-28 rounded-md border border-gray-200 dark:border-dark-border bg-white dark:bg-dark-card shadow-lg overflow-hidden text-xs font-semibold"
         >
           <li>
-            <a href="/" class:list={['block px-3 py-2 transition-colors', lang === 'en' ? 'text-primary bg-primary/5' : 'text-gray-600 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-border']}>
+            <a href="/" class:list={['block px-3 py-2 transition-colors', lang === 'en' ? 'text-primary bg-primary/5' : 'text-gray-800 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-border']}>
               English
             </a>
           </li>
           <li>
-            <a href="/es/" class:list={['block px-3 py-2 transition-colors', lang === 'es' ? 'text-primary bg-primary/5' : 'text-gray-600 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-border']}>
+            <a href="/es/" class:list={['block px-3 py-2 transition-colors', lang === 'es' ? 'text-primary bg-primary/5' : 'text-gray-800 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-border']}>
               Español
             </a>
           </li>
@@ -99,25 +99,42 @@ const t = useTranslations(lang);
 
     // Active section highlighting
     const navLinks = document.querySelectorAll('[data-nav-link]');
-    const activeClass = 'text-primary';
-    const inactiveClasses = ['text-gray-600', 'dark:text-dark-muted'];
+    const activeClasses = ['text-primary', 'font-bold', 'dark:text-white'];
+    const inactiveClasses = ['text-gray-800', 'dark:text-dark-muted'];
 
     function setActive(id) {
       navLinks.forEach((link) => {
         if (link.dataset.navLink === id) {
-          link.classList.add(activeClass);
+          activeClasses.forEach(c => link.classList.add(c));
           inactiveClasses.forEach(c => link.classList.remove(c));
         } else {
-          link.classList.remove(activeClass);
+          activeClasses.forEach(c => link.classList.remove(c));
           inactiveClasses.forEach(c => link.classList.add(c));
         }
       });
     }
 
-    // Highlight on click
+    // Highlight on click and handle smooth scrolling on the homepage
+    const isHomePage = !window.location.pathname.includes('/blog');
     navLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        setActive(link.dataset.navLink);
+      link.addEventListener('click', (e) => {
+        const navId = link.dataset.navLink;
+        setActive(navId);
+
+        // If already on the homepage, scroll smoothly instead of full-page navigation
+        if (isHomePage && navId !== 'blog') {
+          e.preventDefault();
+          if (navId === 'home') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            history.replaceState(null, '', window.location.pathname);
+          } else {
+            const target = document.getElementById(navId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+              history.replaceState(null, '', '#' + navId);
+            }
+          }
+        }
       });
     });
 
