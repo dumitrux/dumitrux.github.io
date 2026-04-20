@@ -9,17 +9,76 @@ const t = useTranslations(lang);
 const posts = (await getCollection('blog'))
   .filter((post) => post.data.lang === 'en')
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const allTags = [...new Set(posts.flatMap((post) => post.data.tags ?? []))].sort();
+
+// Load raw markdown files for full-text search
+const rawFiles = import.meta.glob('/src/content/blog/*.md', { query: '?raw', import: 'default', eager: true });
+const rawByFilename: Record<string, string> = {};
+for (const [path, content] of Object.entries(rawFiles)) {
+  const filename = path.split('/').pop()?.replace('.md', '') ?? '';
+  rawByFilename[filename] = content as string;
+}
+
+// Build search index: strip markdown to plain text
+function stripMarkdown(md: string) {
+  return md
+    .replace(/^---[\s\S]*?---/m, '')
+    .replace(/#{1,6}\s+/g, '')
+    .replace(/\*\*|__/g, '')
+    .replace(/\*|_/g, '')
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/`{1,3}[^`]*`{1,3}/g, '')
+    .replace(/^\s*[-*+]\s+/gm, '')
+    .replace(/^\s*\d+\.\s+/gm, '')
+    .replace(/\|/g, ' ')
+    .replace(/\n+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+const searchIndex = posts.map((post) => ({
+  permalink: post.data.permalink,
+  title: post.data.title.toLowerCase(),
+  description: post.data.description.toLowerCase(),
+  tags: post.data.tags ?? [],
+  body: stripMarkdown(rawByFilename[post.id] ?? rawByFilename[post.data.permalink] ?? '').toLowerCase(),
+}));
 ---
 
 <Layout title="Blog | Dumitru">
   <section class="py-16">
     <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">{t('section.blog')}</h1>
+
+    <!-- Search -->
+    <div class="mb-6">
+      <input
+        id="blog-search"
+        type="text"
+        placeholder={t('blog.search')}
+        class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-dark-border bg-white dark:bg-dark-card text-gray-900 dark:text-white text-sm focus:outline-none focus:border-primary transition-colors"
+      />
+    </div>
+
+    <!-- Tag filter -->
+    <div id="tag-filter" class="flex flex-wrap gap-2 mb-8">
+      <button data-tag="" class="tag-btn px-3 py-1 text-xs rounded-full border transition-colors bg-primary text-white border-primary">
+        {t('blog.allTags')}
+      </button>
+      {allTags.map((tag) => (
+        <button data-tag={tag} class="tag-btn px-3 py-1 text-xs rounded-full border transition-colors bg-transparent text-gray-600 dark:text-dark-muted border-gray-300 dark:border-dark-border hover:border-primary hover:text-primary">
+          {tag}
+        </button>
+      ))}
+    </div>
+
     {posts.length > 0 ? (
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {posts.map((post) => (
           <a
             href={`/blog/${post.data.permalink}/`}
-            class="group bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-xl overflow-hidden hover:border-primary/50 transition-colors block"
+            data-permalink={post.data.permalink}
+            class="blog-card group bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-xl overflow-hidden hover:border-primary/50 transition-colors block"
           >
             {post.data.thumbnail && (
               <img
@@ -51,5 +110,73 @@ const posts = (await getCollection('blog'))
         <p class="text-gray-600 dark:text-dark-muted">{t('blog.coming')}</p>
       </div>
     )}
+
+    <p id="no-results" class="hidden text-center text-gray-500 dark:text-dark-muted mt-8">{t('blog.noResults')}</p>
   </section>
+
+  <script type="application/json" id="search-index" set:html={JSON.stringify(searchIndex)} />
 </Layout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('blog-search');
+    const tagButtons = document.querySelectorAll('.tag-btn');
+    const cards = document.querySelectorAll('.blog-card');
+    const noResults = document.getElementById('no-results');
+    const index = JSON.parse(document.getElementById('search-index').textContent);
+
+    // Build a lookup by permalink
+    const indexMap = {};
+    index.forEach((entry) => { indexMap[entry.permalink] = entry; });
+
+    let activeTag = '';
+    let debounceTimer;
+
+    function filterPosts() {
+      const query = searchInput.value.toLowerCase().trim();
+      let visible = 0;
+
+      cards.forEach((card) => {
+        const entry = indexMap[card.dataset.permalink];
+        if (!entry) { card.style.display = 'none'; return; }
+
+        const matchesTag = !activeTag || entry.tags.includes(activeTag);
+        const matchesSearch = !query ||
+          entry.title.includes(query) ||
+          entry.description.includes(query) ||
+          entry.tags.some(t => t.toLowerCase().includes(query)) ||
+          entry.body.includes(query);
+
+        if (matchesTag && matchesSearch) {
+          card.style.display = '';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      noResults.classList.toggle('hidden', visible > 0);
+    }
+
+    searchInput.addEventListener('input', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(filterPosts, 200);
+    });
+
+    tagButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        activeTag = btn.dataset.tag;
+        tagButtons.forEach((b) => {
+          if (b === btn) {
+            b.classList.add('bg-primary', 'text-white', 'border-primary');
+            b.classList.remove('bg-transparent', 'text-gray-600', 'dark:text-dark-muted', 'border-gray-300', 'dark:border-dark-border');
+          } else {
+            b.classList.remove('bg-primary', 'text-white', 'border-primary');
+            b.classList.add('bg-transparent', 'text-gray-600', 'dark:text-dark-muted', 'border-gray-300', 'dark:border-dark-border');
+          }
+        });
+        filterPosts();
+      });
+    });
+  });
+</script>

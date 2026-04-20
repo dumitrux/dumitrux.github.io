@@ -11,17 +11,20 @@ const t = useTranslations(lang);
       dumitrux
     </a>
     <div class="flex items-center gap-3 sm:gap-6">
-      <a href="#experience" class="hidden sm:inline text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+      <a href={lang === 'en' ? '/' : '/es/'} data-nav-link="home" class="hidden sm:inline text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+        {t('nav.home')}
+      </a>
+      <a href={`${lang === 'en' ? '/' : '/es/'}#experience`} data-nav-link="experience" class="hidden sm:inline text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
         {t('section.experience')}
       </a>
-      <a href="#projects" class="hidden sm:inline text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+      <a href={`${lang === 'en' ? '/' : '/es/'}#projects`} data-nav-link="projects" class="hidden sm:inline text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
         {t('section.personal')}
       </a>
       <!-- <a href="#contributions" class="hidden sm:inline text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
         {t('section.contributions')}
       </a> -->
-      <a href={lang === 'en' ? '/blog/' : '/es/blog/'} class="px-3 py-1 text-sm font-medium rounded-md bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-colors">
-        {t('nav.blog')}
+      <a href={lang === 'en' ? '/blog/' : '/es/blog/'} data-nav-link="blog" class="hidden sm:inline text-gray-600 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+        {t('nav.blog')} <span class="inline-block translate-y-[-1px]">&#8599;</span>
       </a>
       <!-- Dark mode toggle -->
       <button
@@ -31,7 +34,7 @@ const t = useTranslations(lang);
         aria-label="Toggle dark mode"
       >
         <!-- Moon icon (visible in dark mode) -->
-        <svg id="icon-moon" class="w-5 h-5 hidden dark:block text-indigo-300" fill="currentColor" viewBox="0 0 20 20">
+        <svg id="icon-moon" class="w-5 h-5 hidden dark:block text-gray-100" fill="currentColor" viewBox="0 0 20 20">
           <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
         </svg>
         <!-- Sun icon (visible in light mode) -->
@@ -74,22 +77,102 @@ const t = useTranslations(lang);
 </header>
 
 <script is:inline>
-  document.getElementById('theme-toggle')?.addEventListener('click', () => {
-    const isDark = document.documentElement.classList.toggle('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  });
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('theme-toggle')?.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
 
-  const langToggle = document.getElementById('lang-toggle');
-  const langMenu = document.getElementById('lang-menu');
-  langToggle?.addEventListener('click', () => {
-    const open = !langMenu.classList.contains('hidden');
-    langMenu.classList.toggle('hidden', open);
-    langToggle.setAttribute('aria-expanded', String(!open));
-  });
-  document.addEventListener('click', (e) => {
-    if (!document.getElementById('lang-dropdown')?.contains(e.target)) {
-      langMenu?.classList.add('hidden');
-      langToggle?.setAttribute('aria-expanded', 'false');
+    const langToggle = document.getElementById('lang-toggle');
+    const langMenu = document.getElementById('lang-menu');
+    langToggle?.addEventListener('click', () => {
+      const open = !langMenu.classList.contains('hidden');
+      langMenu.classList.toggle('hidden', open);
+      langToggle.setAttribute('aria-expanded', String(!open));
+    });
+    document.addEventListener('click', (e) => {
+      if (!document.getElementById('lang-dropdown')?.contains(e.target)) {
+        langMenu?.classList.add('hidden');
+        langToggle?.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Active section highlighting
+    const navLinks = document.querySelectorAll('[data-nav-link]');
+    const activeClass = 'text-primary';
+    const inactiveClasses = ['text-gray-600', 'dark:text-dark-muted'];
+
+    function setActive(id) {
+      navLinks.forEach((link) => {
+        if (link.dataset.navLink === id) {
+          link.classList.add(activeClass);
+          inactiveClasses.forEach(c => link.classList.remove(c));
+        } else {
+          link.classList.remove(activeClass);
+          inactiveClasses.forEach(c => link.classList.add(c));
+        }
+      });
+    }
+
+    // Highlight on click
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        setActive(link.dataset.navLink);
+      });
+    });
+
+    const isBlogPage = window.location.pathname.includes('/blog');
+
+    if (isBlogPage) {
+      setActive('blog');
+    } else {
+      // Collect section IDs that have matching nav links
+      const navSectionIds = new Set();
+      navLinks.forEach((link) => {
+        const id = link.dataset.navLink;
+        if (id && id !== 'home') navSectionIds.add(id);
+      });
+      const sections = Array.from(document.querySelectorAll('section[id]'))
+        .filter((s) => navSectionIds.has(s.id));
+
+      // If there's a hash in the URL (e.g. navigated from blog to /#experience),
+      // lock the highlight until the browser finishes scrolling to the target.
+      const hash = window.location.hash.replace('#', '');
+      let hashLock = !!(hash && document.getElementById(hash));
+      if (hashLock) {
+        setActive(hash);
+        window.addEventListener('scroll', function unlock() {
+          hashLock = false;
+          window.removeEventListener('scroll', unlock);
+        }, { once: true });
+        setTimeout(() => { hashLock = false; }, 800);
+      } else if (window.scrollY < 100) {
+        setActive('home');
+      }
+
+      function updateActiveFromScroll() {
+        if (hashLock) return;
+        if (window.scrollY < 100) {
+          setActive('home');
+          return;
+        }
+        let closest = null;
+        let closestDist = Infinity;
+        sections.forEach((section) => {
+          const dist = Math.abs(section.getBoundingClientRect().top);
+          if (dist < closestDist) {
+            closestDist = dist;
+            closest = section.id;
+          }
+        });
+        if (closest) setActive(closest);
+      }
+
+      if (sections.length > 0) {
+        window.addEventListener('scroll', updateActiveFromScroll, { passive: true });
+        // Run once immediately to set initial state
+        updateActiveFromScroll();
+      }
     }
   });
 </script>

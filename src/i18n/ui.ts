@@ -36,6 +36,9 @@ export const ui = {
     'career.milestone4': 'Multiple industry certifications',
     'footer.built': 'Built with Astro & Tailwind CSS',
     'blog.coming': 'Blog posts coming soon...',
+    'blog.search': 'Search posts...',
+    'blog.allTags': 'All',
+    'blog.noResults': 'No posts match your search.',
     'lang.toggle': 'ES',
   },
   es: {
@@ -68,6 +71,9 @@ export const ui = {
     'career.milestone4': 'Múltiples certificaciones de la industria',
     'footer.built': 'Hecho con Astro y Tailwind CSS',
     'blog.coming': 'Próximamente artículos en el blog...',
+    'blog.search': 'Buscar artículos...',
+    'blog.allTags': 'Todos',
+    'blog.noResults': 'No hay artículos que coincidan con tu búsqueda.',
     'lang.toggle': 'EN',
   },
 } as const;
