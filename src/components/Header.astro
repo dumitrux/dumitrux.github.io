@@ -77,7 +77,7 @@ const t = useTranslations(lang);
 </header>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('astro:page-load', () => {
     document.getElementById('theme-toggle')?.addEventListener('click', () => {
       const isDark = document.documentElement.classList.toggle('dark');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
@@ -115,7 +115,8 @@ const t = useTranslations(lang);
     }
 
     // Highlight on click and handle smooth scrolling on the homepage
-    const isHomePage = !window.location.pathname.includes('/blog');
+    const path = window.location.pathname.replace(/\/$/, '') || '/';
+    const isHomePage = path === '' || path === '/' || path === '/es';
     navLinks.forEach((link) => {
       link.addEventListener('click', (e) => {
         const navId = link.dataset.navLink;
@@ -138,11 +139,11 @@ const t = useTranslations(lang);
       });
     });
 
-    const isBlogPage = window.location.pathname.includes('/blog');
+    const isBlogPage = path.startsWith('/blog') || path.startsWith('/es/blog');
 
     if (isBlogPage) {
       setActive('blog');
-    } else {
+    } else if (isHomePage) {
       // Collect section IDs that have matching nav links
       const navSectionIds = new Set();
       navLinks.forEach((link) => {

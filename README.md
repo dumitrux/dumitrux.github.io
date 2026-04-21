@@ -5,6 +5,7 @@ Personal portfolio website built with [Astro](https://astro.build/) and [Tailwin
 ## Tech Stack
 
 - **Astro** v5 — static site generator
+- **Astro View Transitions** — smooth client-side page navigation without full-page reloads
 - **Tailwind CSS** v3 — utility-first styling
 - **@tailwindcss/typography** — prose styling for blog posts
 - **TypeScript** — strict mode
@@ -90,11 +91,11 @@ Post content in Markdown...
 
 ### Work Experience
 
-Edit `src/components/Skills.astro` — add entries to the `workExperience` array with `name`, `description` (EN/ES), and `skills` tags.
+Edit `src/data/experience.ts` — add entries to the `workExperience` array with `slug`, `name`, `description` (EN/ES), `details` (EN/ES), and `skills` tags.
 
 ### Personal Projects
 
-Edit `src/components/Projects.astro` — add entries to the `personalProjects` array with `name`, `description` (EN/ES), `url`, and `tags`.
+Edit `src/data/projects.ts` — add entries to the `personalProjects` array with `slug`, `name`, `description` (EN/ES), `details` (EN/ES), `url`, and `tags`.
 
 ### Translations
 

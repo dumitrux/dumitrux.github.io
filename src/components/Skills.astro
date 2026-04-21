@@ -1,48 +1,23 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/ui';
+import { workExperience } from '../data/experience';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
-const workExperience = [
-  {
-    name: 'GSK IntelHub',
-    description: lang === 'en'
-      ? 'Enhances trial planning by integrating various data sources. Focused on country and site data for patient recruitment planning and tracking. Main goal: increase chances of successfully delivering GSK trials.'
-      : 'Mejora la planificación de ensayos integrando diversas fuentes de datos. Enfocado en datos de países y sitios para la planificación y seguimiento del reclutamiento de pacientes.',
-    skills: ['Azure', 'Databricks', 'Data Platform', 'Analytics', 'CI/CD', 'Python'],
-  },
-  {
-    name: 'GSK FlightDeck',
-    description: lang === 'en'
-      ? 'Data platform and analytics project for GSK pharmaceutical operations.'
-      : 'Plataforma de datos y analítica para operaciones farmacéuticas de GSK.',
-    skills: ['Azure', 'Databricks', 'Data Platform', 'Analytics', 'Infrastructure as Code'],
-  },
-  {
-    name: 'Janssen (Johnson & Johnson)',
-    description: lang === 'en'
-      ? 'Business intelligence and cloud infrastructure project leveraging Qlik Sense, Qlik View, and Azure.'
-      : 'Proyecto de inteligencia de negocio e infraestructura cloud con Qlik Sense, Qlik View y Azure.',
-    skills: ['Qlik Sense', 'Qlik View', 'Azure', 'SQL', 'Power BI'],
-  },
-  {
-    name: 'NHS Somerset',
-    description: lang === 'en'
-      ? 'Multitenant applications deployed and managed in Azure for the National Health Service.'
-      : 'Aplicaciones multitenant desplegadas y gestionadas en Azure para el Servicio Nacional de Salud.',
-    skills: ['Azure', 'Containerization', 'PowerShell', 'Bash'],
-  },
-];
+const prefix = lang === 'es' ? '/es' : '';
 ---
 
 <section id="experience" class="py-12 scroll-mt-20">
   <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">{t('section.experience')}</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="experience-grid">
     {workExperience.map((project, i) => (
-      <div class:list={['bg-gray-100 dark:bg-dark-card border border-gray-300 dark:border-dark-border rounded-xl p-5 hover:border-primary/50 transition-colors', i >= 4 && 'hidden experience-extra']}>
-        <h3 class="text-gray-900 dark:text-white font-semibold mb-2">{project.name}</h3>
-        <p class="text-gray-800 dark:text-dark-muted text-sm mb-3 leading-relaxed">{project.description}</p>
+      <a
+        href={`${prefix}/experience/${project.slug}`}
+        class:list={['group bg-gray-100 dark:bg-dark-card border border-gray-300 dark:border-dark-border rounded-xl p-5 hover:border-primary/50 transition-colors block', i >= 4 && 'hidden experience-extra']}
+      >
+        <h3 class="text-gray-900 dark:text-white font-semibold mb-1 group-hover:text-primary transition-colors">{project.name}</h3>
+        <p class="text-xs text-gray-500 dark:text-dark-muted mb-2">{project.period}</p>
+        <p class="text-gray-800 dark:text-dark-muted text-sm mb-3 leading-relaxed">{project.description[lang]}</p>
         <div class="flex flex-wrap gap-2">
           {project.skills.map((skill) => (
             <span class="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20">
@@ -50,7 +25,7 @@ const workExperience = [
             </span>
           ))}
         </div>
-      </div>
+      </a>
     ))}
   </div>
   {workExperience.length > 4 && (
@@ -67,12 +42,14 @@ const workExperience = [
 </section>
 
 <script is:inline>
-  document.getElementById('experience-toggle')?.addEventListener('click', function() {
-    const extras = document.querySelectorAll('.experience-extra');
-    const expanded = !extras[0]?.classList.contains('hidden');
-    extras.forEach(el => el.classList.toggle('hidden', expanded));
-    this.textContent = expanded
-      ? (document.documentElement.lang === 'es' ? 'Ver todo' : 'View All')
-      : (document.documentElement.lang === 'es' ? 'Ver menos' : 'View Less');
+  document.addEventListener('astro:page-load', () => {
+    document.getElementById('experience-toggle')?.addEventListener('click', function() {
+      const extras = document.querySelectorAll('.experience-extra');
+      const expanded = !extras[0]?.classList.contains('hidden');
+      extras.forEach(el => el.classList.toggle('hidden', expanded));
+      this.textContent = expanded
+        ? (document.documentElement.lang === 'es' ? 'Ver todo' : 'View All')
+        : (document.documentElement.lang === 'es' ? 'Ver menos' : 'View Less');
+    });
   });
 </script>
