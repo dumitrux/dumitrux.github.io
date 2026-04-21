@@ -5,7 +5,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="pt-16 pb-12">
+<section class="pt-12 pb-12">
   <div class="flex flex-col md:flex-row items-start gap-8">
     <div class="flex-1">
       <p class="text-primary font-mono text-sm mb-2">{t('hero.greeting')}</p>
@@ -13,12 +13,6 @@ const t = useTranslations(lang);
       <p class="text-lg text-secondary font-medium mb-4">{t('hero.role')}</p>
       <p class="text-gray-800 dark:text-dark-muted leading-relaxed mb-4 max-w-2xl">
         {t('hero.description')}
-      </p>
-      <p class="text-gray-800 dark:text-dark-muted leading-relaxed max-w-2xl text-sm">
-        {t('hero.approach')}
-      </p>
-      <p class="text-gray-800 dark:text-dark-muted leading-relaxed max-w-2xl text-sm mt-3">
-        {t('hero.career')}
       </p>
       <div class="flex gap-4 mt-6">
         <a

@@ -3,6 +3,12 @@ import { getLangFromUrl, useTranslations } from '../i18n/ui';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+// Compute equivalent path in each language
+const pathname = Astro.url.pathname;
+const hash = Astro.url.hash || '';
+const enPath = lang === 'es' ? (pathname.replace(/^\/es/, '') || '/') + hash : pathname + hash;
+const esPath = lang === 'en' ? `/es${pathname}${hash}` : pathname + hash;
 ---
 
 <header class="sticky top-0 z-50 bg-white/80 dark:bg-dark-bg/80 backdrop-blur-md border-b border-gray-200 dark:border-dark-border transition-colors duration-300">
@@ -61,23 +67,73 @@ const t = useTranslations(lang);
           class="hidden absolute right-0 mt-1 w-28 rounded-md border border-gray-200 dark:border-dark-border bg-white dark:bg-dark-card shadow-lg overflow-hidden text-xs font-semibold"
         >
           <li>
-            <a href="/" class:list={['block px-3 py-2 transition-colors', lang === 'en' ? 'text-primary bg-primary/5' : 'text-gray-800 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-border']}>
+            <a href={enPath} class:list={['block px-3 py-2 transition-colors', lang === 'en' ? 'text-primary bg-primary/5' : 'text-gray-800 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-border']}>
               English
             </a>
           </li>
           <li>
-            <a href="/es/" class:list={['block px-3 py-2 transition-colors', lang === 'es' ? 'text-primary bg-primary/5' : 'text-gray-800 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-border']}>
+            <a href={esPath} class:list={['block px-3 py-2 transition-colors', lang === 'es' ? 'text-primary bg-primary/5' : 'text-gray-800 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-border']}>
               Español
             </a>
           </li>
         </ul>
       </div>
+      <!-- Mobile menu button -->
+      <button
+        id="mobile-menu-toggle"
+        type="button"
+        class="sm:hidden p-2 rounded-lg text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-dark-card transition-colors"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <svg id="mobile-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="mobile-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
     </div>
   </nav>
+  <!-- Mobile menu panel -->
+  <div id="mobile-menu" class="hidden sm:hidden border-t border-gray-200 dark:border-dark-border bg-white/95 dark:bg-dark-bg/95 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-2">
+      <a href={lang === 'en' ? '/' : '/es/'} data-nav-link="home" class="mobile-nav-link px-3 py-2 rounded-lg text-gray-800 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-card transition-colors text-sm">
+        {t('nav.home')}
+      </a>
+      <a href={`${lang === 'en' ? '/' : '/es/'}#experience`} data-nav-link="experience" class="mobile-nav-link px-3 py-2 rounded-lg text-gray-800 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-card transition-colors text-sm">
+        {t('section.experience')}
+      </a>
+      <a href={`${lang === 'en' ? '/' : '/es/'}#projects`} data-nav-link="projects" class="mobile-nav-link px-3 py-2 rounded-lg text-gray-800 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-card transition-colors text-sm">
+        {t('section.personal')}
+      </a>
+      <a href={lang === 'en' ? '/blog/' : '/es/blog/'} data-nav-link="blog" class="mobile-nav-link px-3 py-2 rounded-lg text-gray-800 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-card transition-colors text-sm">
+        {t('nav.blog')} <span class="inline-block translate-y-[-1px] font-normal">&#8599;&#xFE0E;</span>
+      </a>
+    </div>
+  </div>
 </header>
 
 <script is:inline>
   document.addEventListener('astro:page-load', () => {
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('mobile-icon-open');
+    const iconClose = document.getElementById('mobile-icon-close');
+    mobileToggle?.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden', isOpen);
+      iconOpen.classList.toggle('hidden', !isOpen);
+      iconClose.classList.toggle('hidden', isOpen);
+      mobileToggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu?.classList.add('hidden');
+        iconOpen?.classList.remove('hidden');
+        iconClose?.classList.add('hidden');
+        mobileToggle?.setAttribute('aria-expanded', 'false');
+      });
+    });
+
     document.getElementById('theme-toggle')?.addEventListener('click', () => {
       const isDark = document.documentElement.classList.toggle('dark');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');

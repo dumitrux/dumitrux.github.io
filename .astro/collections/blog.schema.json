@@ -38,6 +38,9 @@
         "thumbnail": {
           "type": "string"
         },
+        "pinned": {
+          "type": "boolean"
+        },
         "lang": {
           "type": "string",
           "enum": [

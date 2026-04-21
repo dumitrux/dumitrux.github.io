@@ -7,7 +7,11 @@ const t = useTranslations(lang);
 
 const posts = (await getCollection('blog'))
   .filter((post) => post.data.lang === lang)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .sort((a, b) => {
+    if (a.data.pinned && !b.data.pinned) return -1;
+    if (!a.data.pinned && b.data.pinned) return 1;
+    return b.data.date.valueOf() - a.data.date.valueOf();
+  })
   .slice(0, 3);
 ---
 
@@ -35,6 +39,7 @@ const posts = (await getCollection('blog'))
           )}
           <div class="p-5">
             <p class="text-xs text-gray-500 dark:text-dark-muted mb-2">
+              {post.data.pinned && <span class="text-primary font-semibold mr-2">{lang === 'en' ? '📌 Pinned' : '📌 Fijado'}</span>}
               {post.data.date.toLocaleDateString(lang === 'en' ? 'en-GB' : 'es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
             <h3 class="text-gray-900 dark:text-white font-semibold mb-2 group-hover:text-primary transition-colors">{post.data.title}</h3>
