@@ -3,7 +3,8 @@ permalink: git-flows
 title: "Git Flows: Choosing the Right Branching Strategy"
 description: "A practical comparison of Git Flow, GitHub Flow, GitLab Flow, and Trunk-Based Development to help you pick the right branching strategy for your team."
 date: 2026-04-18
-tags: ["Git", "DevOps", "CI/CD", "Version Control"]
+tags: ["DevOps", "Software"]
+secondaryTags: ["Git", "CI/CD", "Version Control"]
 thumbnail: "/images/blog/git-flows-thumbnail.svg"
 lang: en
 ---

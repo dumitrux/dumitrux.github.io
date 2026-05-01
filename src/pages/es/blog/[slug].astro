@@ -18,7 +18,7 @@ const { Content } = await render(post);
 
 <Layout title={`${post.data.title} | Dumitru`}>
   <article class="py-16 max-w-3xl mx-auto">
-    <a href="/es/blog/" class="text-primary text-sm hover:underline mb-6 inline-block">&larr; Volver al blog</a>
+    <a href="/es/" class="text-primary text-sm hover:underline mb-6 inline-block">&larr; Volver al blog</a>
 
     {post.data.thumbnail && (
       <img
@@ -35,11 +35,22 @@ const { Content } = await render(post);
     <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">{post.data.title}</h1>
     <p class="text-gray-800 dark:text-dark-muted mb-6">{post.data.description}</p>
 
-    {post.data.tags && (
-      <div class="flex flex-wrap gap-2 mb-8">
-        {post.data.tags.map((tag) => (
-          <span class="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20">{tag}</span>
-        ))}
+    {(post.data.tags || post.data.secondaryTags) && (
+      <div class="mb-8">
+        {post.data.tags && (
+          <div class="flex flex-wrap gap-2 mb-2">
+            {post.data.tags.map((tag) => (
+              <span class="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20">{tag}</span>
+            ))}
+          </div>
+        )}
+        {post.data.secondaryTags && (
+          <div class="flex flex-wrap gap-2">
+            {post.data.secondaryTags.map((tag) => (
+              <span class="px-2 py-1 text-xs rounded-md bg-gray-200 dark:bg-dark-card text-gray-600 dark:text-dark-muted border border-gray-200 dark:border-dark-border">{tag}</span>
+            ))}
+          </div>
+        )}
       </div>
     )}
 

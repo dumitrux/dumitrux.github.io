@@ -3,7 +3,8 @@ permalink: how-the-internet-works
 title: "Cómo Funciona Internet: Del Clic a la Respuesta"
 description: "Una explicación simplificada de cómo funciona internet — desde cables y datacenters hasta DNS, HTTP y la infraestructura cloud detrás de cada petición."
 date: 2026-04-08
-tags: ["Cloud", "Redes", "Infraestructura", "Fundamentos"]
+tags: ["Infrastructure"]
+secondaryTags: ["Cloud", "Redes", "Fundamentos"]
 thumbnail: "/images/blog/how-internet-works-thumbnail.svg"
 lang: es
 ---

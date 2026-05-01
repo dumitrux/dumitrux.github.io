@@ -1,16 +1,267 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Hero from '../../components/Hero.astro';
-import Skills from '../../components/Skills.astro';
-import Projects from '../../components/Projects.astro';
-import Contributions from '../../components/Contributions.astro';
-import Blog from '../../components/Blog.astro';
+import { getCollection } from 'astro:content';
+import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const posts = (await getCollection('blog'))
+  .filter((post) => post.data.lang === 'es')
+  .sort((a, b) => {
+    if (a.data.pinned && !b.data.pinned) return -1;
+    if (!a.data.pinned && b.data.pinned) return 1;
+    return b.data.date.valueOf() - a.data.date.valueOf();
+  });
+
+const mainTagOrder = ['DevOps', 'Data', 'AI/ML', 'Infrastructure', 'Personal', 'Software', 'Projects'];
+const usedTags = new Set(posts.flatMap((post) => post.data.tags ?? []));
+const allTags = mainTagOrder.filter((tag) => usedTags.has(tag));
+
+// Load raw markdown files for full-text search
+const rawFiles = import.meta.glob('/src/content/blog/*.md', { query: '?raw', import: 'default', eager: true });
+const rawByFilename: Record<string, string> = {};
+for (const [path, content] of Object.entries(rawFiles)) {
+  const filename = path.split('/').pop()?.replace('.md', '') ?? '';
+  rawByFilename[filename] = content as string;
+}
+
+// Build search index: strip markdown to plain text
+function stripMarkdown(md: string) {
+  return md
+    .replace(/^---[\s\S]*?---/m, '')
+    .replace(/#{1,6}\s+/g, '')
+    .replace(/\*\*|__/g, '')
+    .replace(/\*|_/g, '')
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/`{1,3}[^`]*`{1,3}/g, '')
+    .replace(/^\s*[-*+]\s+/gm, '')
+    .replace(/^\s*\d+\.\s+/gm, '')
+    .replace(/\|/g, ' ')
+    .replace(/\n+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+const searchIndex = posts.map((post) => ({
+  permalink: post.data.permalink,
+  title: post.data.title.toLowerCase(),
+  description: post.data.description.toLowerCase(),
+  tags: post.data.tags ?? [],
+  secondaryTags: post.data.secondaryTags ?? [],
+  body: stripMarkdown(rawByFilename[post.id] ?? rawByFilename[`${post.data.permalink}-es`] ?? '').toLowerCase(),
+}));
 ---
 
-<Layout title="Dumitru | Especialista en Plataformas de Datos e Ingeniero Cloud">
-  <Hero />
-  <Skills />
-  <Projects />
-  <!-- <Contributions /> -->
-  <Blog />
+<Layout title="Blog | Dumitru">
+  <section class="pt-8 pb-4">
+    <!-- Search -->
+    <div class="mb-6 flex flex-col sm:flex-row gap-3">
+      <input
+        id="blog-search"
+        type="text"
+        placeholder={t('blog.search')}
+        class="flex-1 px-4 py-2 rounded-lg border border-gray-300 dark:border-dark-border bg-gray-200 dark:bg-dark-card text-gray-900 dark:text-white text-sm focus:outline-none focus:border-primary transition-colors"
+      />
+      <div class="flex items-center gap-2">
+        <label for="posts-per-page" class="text-xs text-gray-600 dark:text-dark-muted whitespace-nowrap">{t('blog.postsPerPage')}</label>
+        <select
+          id="posts-per-page"
+          class="px-3 py-2 rounded-lg border border-gray-300 dark:border-dark-border bg-gray-200 dark:bg-dark-card text-gray-900 dark:text-white text-sm focus:outline-none focus:border-primary transition-colors"
+        >
+          <option value="5">5</option>
+          <option value="10" selected>10</option>
+          <option value="20">20</option>
+          <option value="all">{t('blog.allTags')}</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Tag filter -->
+    <div id="tag-filter" class="flex flex-wrap gap-2 mb-8">
+      <button data-tag="" class="tag-btn px-3 py-1 text-xs font-semibold rounded-full border-[3px] transition-colors bg-primary text-white border-primary">
+        {t('blog.allTags')}
+      </button>
+      {allTags.map((tag) => (
+        <button data-tag={tag} class="tag-btn px-3 py-1 text-xs rounded-full border transition-colors bg-transparent text-gray-800 dark:text-dark-muted border-gray-300 dark:border-dark-border hover:border-primary hover:text-primary">
+          {tag}
+        </button>
+      ))}
+    </div>
+
+    {posts.length > 0 ? (
+      <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {posts.map((post) => (
+          <a
+            href={`/es/blog/${post.data.permalink}/`}
+            data-permalink={post.data.permalink}
+            class="blog-card group bg-gray-200 dark:bg-dark-card border-2 border-gray-300 dark:border-dark-border rounded-xl overflow-hidden hover:border-primary/50 transition-colors block"
+          >
+            {post.data.thumbnail && (
+              <img
+                src={post.data.thumbnail}
+                alt={post.data.title}
+                class="w-full h-48 object-cover"
+                loading="lazy"
+              />
+            )}
+            <div class="p-5">
+              <p class="text-xs text-gray-500 dark:text-dark-muted mb-2">
+                {post.data.pinned && <span class="text-primary font-semibold mr-2">📌 Fijado</span>}
+                {post.data.date.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </p>
+              <h2 class="text-lg text-gray-900 dark:text-white font-semibold mb-2 group-hover:text-primary transition-colors">{post.data.title}</h2>
+              <p class="text-gray-800 dark:text-dark-muted text-sm leading-relaxed">{post.data.description}</p>
+              {post.data.tags && (
+                <div class="flex flex-wrap gap-2 mt-3">
+                  {post.data.tags.map((tag) => (
+                    <span class="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20">{tag}</span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <div class="bg-gray-200 dark:bg-dark-card border-2 border-gray-300 dark:border-dark-border rounded-xl p-8 text-center">
+        <p class="text-gray-800 dark:text-dark-muted">{t('blog.coming')}</p>
+      </div>
+    )}
+
+    <p id="no-results" class="hidden text-center text-gray-500 dark:text-dark-muted mt-8">{t('blog.noResults')}</p>
+
+    <!-- Pagination -->
+    <nav id="pagination" class="flex items-center justify-center gap-2 mt-10" aria-label="Pagination"></nav>
+  </section>
+
+  <script type="application/json" id="search-index" set:html={JSON.stringify(searchIndex)} />
 </Layout>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    const searchInput = document.getElementById('blog-search');
+    const tagButtons = document.querySelectorAll('.tag-btn');
+    const cards = Array.from(document.querySelectorAll('.blog-card'));
+    const noResults = document.getElementById('no-results');
+    const perPageSelect = document.getElementById('posts-per-page');
+    const pagination = document.getElementById('pagination');
+    const index = JSON.parse(document.getElementById('search-index').textContent);
+
+    // Build a lookup by permalink
+    const indexMap = {};
+    index.forEach((entry) => { indexMap[entry.permalink] = entry; });
+
+    let activeTag = '';
+    let currentPage = 1;
+    let debounceTimer;
+
+    function getFilteredCards() {
+      const query = searchInput.value.toLowerCase().trim();
+      return cards.filter((card) => {
+        const entry = indexMap[card.dataset.permalink];
+        if (!entry) return false;
+        const matchesTag = !activeTag || entry.tags.includes(activeTag);
+        const matchesSearch = !query ||
+          entry.title.includes(query) ||
+          entry.description.includes(query) ||
+          entry.tags.some(t => t.toLowerCase().includes(query)) ||
+          (entry.secondaryTags || []).some(t => t.toLowerCase().includes(query)) ||
+          entry.body.includes(query);
+        return matchesTag && matchesSearch;
+      });
+    }
+
+    function renderPagination(totalItems, perPage, page) {
+      pagination.innerHTML = '';
+      if (perPage === Infinity || totalItems <= perPage) return;
+
+      const totalPages = Math.ceil(totalItems / perPage);
+      if (totalPages <= 1) return;
+
+      const btnClass = 'px-3 py-2 text-sm rounded-lg border transition-colors';
+      const activeClass = 'bg-primary text-white border-primary';
+      const inactiveClass = 'border-gray-300 dark:border-dark-border text-gray-800 dark:text-dark-muted hover:border-primary hover:text-primary cursor-pointer';
+      const disabledClass = 'border-gray-300 dark:border-dark-border text-gray-400 dark:text-gray-600 cursor-not-allowed';
+
+      // Prev button
+      const prev = document.createElement('button');
+      prev.innerHTML = '&larr; Ant';
+      prev.className = btnClass + ' ' + (page > 1 ? inactiveClass : disabledClass);
+      prev.disabled = page <= 1;
+      prev.addEventListener('click', () => { if (page > 1) { currentPage = page - 1; filterPosts(); } });
+      pagination.appendChild(prev);
+
+      // Page numbers
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        btn.className = btnClass + ' ' + (i === page ? activeClass : inactiveClass);
+        btn.addEventListener('click', () => { currentPage = i; filterPosts(); });
+        pagination.appendChild(btn);
+      }
+
+      // Next button
+      const next = document.createElement('button');
+      next.innerHTML = 'Sig &rarr;';
+      next.className = btnClass + ' ' + (page < totalPages ? inactiveClass : disabledClass);
+      next.disabled = page >= totalPages;
+      next.addEventListener('click', () => { if (page < totalPages) { currentPage = page + 1; filterPosts(); } });
+      pagination.appendChild(next);
+    }
+
+    function filterPosts() {
+      const perPage = perPageSelect.value === 'all' ? Infinity : parseInt(perPageSelect.value, 10);
+      const filtered = getFilteredCards();
+      const totalFiltered = filtered.length;
+
+      // Clamp current page
+      const totalPages = perPage === Infinity ? 1 : Math.ceil(totalFiltered / perPage);
+      if (currentPage > totalPages) currentPage = totalPages || 1;
+
+      // Hide all cards first
+      cards.forEach((card) => { card.style.display = 'none'; });
+
+      // Show only the current page slice of filtered cards
+      if (perPage === Infinity) {
+        filtered.forEach((card) => { card.style.display = ''; });
+      } else {
+        const start = (currentPage - 1) * perPage;
+        const end = start + perPage;
+        filtered.forEach((card, i) => {
+          card.style.display = (i >= start && i < end) ? '' : 'none';
+        });
+      }
+
+      noResults.classList.toggle('hidden', totalFiltered > 0);
+      renderPagination(totalFiltered, perPage, currentPage);
+    }
+
+    searchInput.addEventListener('input', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => { currentPage = 1; filterPosts(); }, 200);
+    });
+
+    perPageSelect.addEventListener('change', () => { currentPage = 1; filterPosts(); });
+
+    tagButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        activeTag = btn.dataset.tag;
+        currentPage = 1;
+        tagButtons.forEach((b) => {
+          if (b === btn) {
+            b.classList.add('bg-primary', 'text-white', 'border-primary');
+            b.classList.remove('bg-transparent', 'text-gray-800', 'dark:text-dark-muted', 'border-gray-300', 'dark:border-dark-border');
+          } else {
+            b.classList.remove('bg-primary', 'text-white', 'border-primary');
+            b.classList.add('bg-transparent', 'text-gray-800', 'dark:text-dark-muted', 'border-gray-300', 'dark:border-dark-border');
+          }
+        });
+        filterPosts();
+      });
+    });
+
+    // Apply initial filter
+    filterPosts();
+  });
+</script>

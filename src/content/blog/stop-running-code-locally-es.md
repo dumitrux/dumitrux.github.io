@@ -3,7 +3,8 @@ permalink: stop-running-code-locally
 title: "Deja de Ejecutar Código en Tu Máquina Local"
 description: "Por qué nunca deberías ejecutar frontend, backend, IA, scripts ni ningún código directamente en tu máquina local — y las alternativas sandboxed que te mantienen seguro y productivo."
 date: 2026-04-05
-tags: ["DevOps", "Seguridad", "Docker", "Buenas Prácticas"]
+tags: ["DevOps", "Infrastructure"]
+secondaryTags: ["Seguridad", "Docker", "Buenas Prácticas"]
 thumbnail: "/images/blog/sandboxed-dev-thumbnail.svg"
 lang: es
 ---

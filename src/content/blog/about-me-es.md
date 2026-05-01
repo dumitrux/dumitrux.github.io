@@ -2,9 +2,9 @@
 permalink: about-me
 title: "Sobre Mí"
 description: "Mi enfoque de ingeniería, trayectoria profesional en salud y farmacéutica, y certificaciones."
-date: 2026-04-20
-tags: ["Carrera", "Sobre mí"]
-pinned: true
+date: 2026-01-01
+tags: ["Personal"]
+secondaryTags: ["Carrera"]
 lang: es
 ---
 

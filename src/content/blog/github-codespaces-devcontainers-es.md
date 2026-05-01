@@ -3,7 +3,8 @@ permalink: github-codespaces-devcontainers
 title: "GitHub Codespaces y Dev Containers: Entornos Consistentes en Segundos"
 description: "Cómo usar Dev Containers y devcontainer.json para crear entornos de desarrollo reproducibles para GitHub Codespaces, VS Code y más."
 date: 2026-04-12
-tags: ["GitHub", "DevOps", "Docker", "Experiencia de Desarrollo"]
+tags: ["DevOps", "Infrastructure"]
+secondaryTags: ["GitHub", "Docker", "Experiencia de Desarrollo"]
 thumbnail: "/images/blog/devcontainers-thumbnail.svg"
 lang: es
 ---

@@ -9,7 +9,7 @@ export const ui = {
   en: {
     'nav.home': 'Home',
     'nav.blog': 'Blog',
-    'nav.about': 'About',
+    'nav.about': 'About Me',
     'hero.greeting': "Hi, I'm",
     'hero.name': 'Dumitru',
     'hero.role': 'Data Platform Specialist · Cloud Engineer · DevOps · Data Engineer',
@@ -37,6 +37,7 @@ export const ui = {
     'blog.search': 'Search posts...',
     'blog.allTags': 'All',
     'blog.noResults': 'No posts match your search.',
+    'blog.postsPerPage': 'Show',
     'lang.toggle': 'ES',
   },
   es: {
@@ -70,6 +71,7 @@ export const ui = {
     'blog.search': 'Buscar artículos...',
     'blog.allTags': 'Todos',
     'blog.noResults': 'No hay artículos que coincidan con tu búsqueda.',
+    'blog.postsPerPage': 'Mostrar',
     'lang.toggle': 'EN',
   },
 } as const;

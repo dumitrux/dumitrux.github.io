@@ -3,7 +3,8 @@ permalink: github-repository-templates
 title: "Plantillas de Repositorio en GitHub: Buenas Prácticas desde el Día Uno"
 description: "Una guía sobre los archivos de salud comunitaria y plantillas que todo repositorio de GitHub debería tener — CONTRIBUTING.md, CODE_OF_CONDUCT.md, plantillas de issues y PRs, CODEOWNERS, .devcontainer, .copilot y más."
 date: 2026-04-15
-tags: ["GitHub", "DevOps", "Buenas Prácticas", "Open Source"]
+tags: ["DevOps", "Software"]
+secondaryTags: ["GitHub", "Buenas Prácticas", "Open Source"]
 thumbnail: "/images/blog/github-templates-thumbnail.svg"
 lang: es
 ---

@@ -2,9 +2,9 @@
 permalink: about-me
 title: "About Me"
 description: "My approach to engineering, career background in healthcare and pharma, and certifications."
-date: 2026-04-20
-tags: ["Career", "About"]
-pinned: true
+date: 2026-01-01
+tags: ["Personal"]
+secondaryTags: ["Career"]
 lang: en
 ---
 

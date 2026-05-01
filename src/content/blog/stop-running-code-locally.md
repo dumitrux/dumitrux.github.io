@@ -3,7 +3,8 @@ permalink: stop-running-code-locally
 title: "Stop Running Code on Your Local Machine"
 description: "Why you should never run frontend, backend, AI, scripts, or any code directly on your local machine — and the sandboxed alternatives that keep you safe and productive."
 date: 2026-04-05
-tags: ["DevOps", "Security", "Docker", "Best Practices"]
+tags: ["DevOps", "Infrastructure"]
+secondaryTags: ["Security", "Docker", "Best Practices"]
 thumbnail: "/images/blog/sandboxed-dev-thumbnail.svg"
 lang: en
 ---

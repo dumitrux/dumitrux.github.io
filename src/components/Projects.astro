@@ -13,7 +13,7 @@ const prefix = lang === 'es' ? '/es' : '';
     {personalProjects.map((project, i) => (
       <a
         href={`${prefix}/project/${project.slug}`}
-        class:list={['group bg-gray-100 dark:bg-dark-card border border-gray-300 dark:border-dark-border rounded-xl p-5 hover:border-secondary/50 transition-colors block', i >= 4 && 'hidden project-extra']}
+        class:list={['group bg-gray-200 dark:bg-dark-card border-2 border-gray-300 dark:border-dark-border rounded-xl p-5 hover:border-secondary/50 transition-colors block', i >= 4 && 'hidden project-extra']}
       >
         <div class="flex items-center gap-2 mb-2">
           <h3 class="text-gray-900 dark:text-white font-semibold group-hover:text-secondary transition-colors">{project.name}</h3>

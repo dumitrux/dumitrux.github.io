@@ -18,7 +18,7 @@ const posts = (await getCollection('blog'))
 <section id="blog" class="py-12 scroll-mt-20">
   <div class="flex items-center justify-between mb-8">
     <h2 class="text-2xl font-bold text-gray-900 dark:text-white">{t('section.blog')}</h2>
-    <a href={lang === 'en' ? '/blog/' : '/es/blog/'} class="px-4 py-2 text-sm font-medium text-primary border border-primary/20 rounded-lg hover:bg-primary/10 transition-colors">
+    <a href={lang === 'en' ? '/' : '/es/'} class="px-4 py-2 text-sm font-medium text-primary border border-primary/20 rounded-lg hover:bg-primary/10 transition-colors">
       {lang === 'en' ? 'View All' : 'Ver todos'}
     </a>
   </div>
@@ -27,7 +27,7 @@ const posts = (await getCollection('blog'))
       {posts.map((post) => (
         <a
           href={lang === 'en' ? `/blog/${post.data.permalink}/` : `/es/blog/${post.data.permalink}/`}
-          class="group bg-gray-100 dark:bg-dark-card border border-gray-300 dark:border-dark-border rounded-xl overflow-hidden hover:border-primary/50 transition-colors block"
+          class="group bg-gray-200 dark:bg-dark-card border-2 border-gray-300 dark:border-dark-border rounded-xl overflow-hidden hover:border-primary/50 transition-colors block"
         >
           {post.data.thumbnail && (
             <img
@@ -56,7 +56,7 @@ const posts = (await getCollection('blog'))
       ))}
     </div>
   ) : (
-    <div class="bg-gray-100 dark:bg-dark-card border border-gray-300 dark:border-dark-border rounded-xl p-8 text-center">
+    <div class="bg-gray-200 dark:bg-dark-card border-2 border-gray-300 dark:border-dark-border rounded-xl p-8 text-center">
       <p class="text-gray-800 dark:text-dark-muted">{t('blog.coming')}</p>
     </div>
   )}

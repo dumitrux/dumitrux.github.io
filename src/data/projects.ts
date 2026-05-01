@@ -78,4 +78,18 @@ export const personalProjects: PersonalProject[] = [
     url: 'https://github.com/dumitrux/solar-system-threejs',
     tags: ['Three.js', 'WebGL', '3D'],
   },
+  {
+    slug: 'bonsai-app',
+    name: 'BonsaiApp',
+    description: {
+      en: 'A mobile app to cultivate emotional self-management and personal growth, helping users deal with emotional and social loneliness.',
+      es: 'Una app móvil para cultivar la autogestión emocional y el crecimiento personal, ayudando a los usuarios a lidiar con la soledad emocional y social.',
+    },
+    details: {
+      en: 'Bonsai is a mobile application built with React Native and Expo to cultivate emotional self-management and personal growth. The app helps users deal with the feeling of emotional and social loneliness through guided exercises, journaling, and self-reflection tools. Designed with a calm, nature-inspired interface that mirrors the patience required to grow a bonsai.',
+      es: 'Bonsai es una aplicación móvil construida con React Native y Expo para cultivar la autogestión emocional y el crecimiento personal. La app ayuda a los usuarios a lidiar con el sentimiento de soledad emocional y social a través de ejercicios guiados, diario personal y herramientas de autorreflexión. Diseñada con una interfaz calmada e inspirada en la naturaleza que refleja la paciencia necesaria para cultivar un bonsái.',
+    },
+    url: 'https://github.com/dumitrux/bonsaiApp',
+    tags: ['React Native', 'Expo', 'Mobile'],
+  },
 ];

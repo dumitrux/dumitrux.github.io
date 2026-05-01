@@ -35,6 +35,12 @@
             "type": "string"
           }
         },
+        "secondaryTags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "thumbnail": {
           "type": "string"
         },

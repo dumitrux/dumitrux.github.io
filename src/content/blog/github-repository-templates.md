@@ -3,7 +3,8 @@ permalink: github-repository-templates
 title: "GitHub Repository Templates: Enforcing Good Practices from Day One"
 description: "A guide to the community health files and templates every GitHub repository should have — CONTRIBUTING.md, CODE_OF_CONDUCT.md, issue and PR templates, CODEOWNERS, .devcontainer, .copilot, and more."
 date: 2026-04-15
-tags: ["GitHub", "DevOps", "Best Practices", "Open Source"]
+tags: ["DevOps", "Software"]
+secondaryTags: ["GitHub", "Best Practices", "Open Source"]
 thumbnail: "/images/blog/github-templates-thumbnail.svg"
 lang: en
 ---

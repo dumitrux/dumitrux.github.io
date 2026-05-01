@@ -3,7 +3,8 @@ permalink: git-flows
 title: "Git Flows: Eligiendo la Estrategia de Ramificación Correcta"
 description: "Una comparación práctica de Git Flow, GitHub Flow, GitLab Flow y Trunk-Based Development para ayudarte a elegir la estrategia de ramificación adecuada para tu equipo."
 date: 2026-04-18
-tags: ["Git", "DevOps", "CI/CD", "Control de Versiones"]
+tags: ["DevOps", "Software"]
+secondaryTags: ["Git", "CI/CD", "Control de Versiones"]
 thumbnail: "/images/blog/git-flows-thumbnail.svg"
 lang: es
 ---

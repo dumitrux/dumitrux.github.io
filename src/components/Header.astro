@@ -11,32 +11,23 @@ const enPath = lang === 'es' ? (pathname.replace(/^\/es/, '') || '/') + hash : p
 const esPath = lang === 'en' ? `/es${pathname}${hash}` : pathname + hash;
 ---
 
-<header class="sticky top-0 z-50 bg-white/80 dark:bg-dark-bg/80 backdrop-blur-md border-b border-gray-200 dark:border-dark-border transition-colors duration-300">
+<header class="bg-gray-200 dark:bg-dark-bg border-b border-gray-200 dark:border-dark-border transition-colors duration-300">
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
     <a href={lang === 'en' ? '/' : '/es/'} class="text-xl font-bold text-gray-900 dark:text-white hover:text-primary transition-colors">
-      dumitrux
+      dumitrux blog
     </a>
     <div class="flex items-center gap-3 sm:gap-6">
       <a href={lang === 'en' ? '/' : '/es/'} data-nav-link="home" class="hidden sm:inline text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
-        {t('nav.home')}
+        {t('nav.blog')}
       </a>
-      <a href={`${lang === 'en' ? '/' : '/es/'}#experience`} data-nav-link="experience" class="hidden sm:inline text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
-        {t('section.experience')}
-      </a>
-      <a href={`${lang === 'en' ? '/' : '/es/'}#projects`} data-nav-link="projects" class="hidden sm:inline text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
-        {t('section.personal')}
-      </a>
-      <!-- <a href="#contributions" class="hidden sm:inline text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
-        {t('section.contributions')}
-      </a> -->
-      <a href={lang === 'en' ? '/blog/' : '/es/blog/'} data-nav-link="blog" class="hidden sm:inline text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
-        {t('nav.blog')} <span class="inline-block translate-y-[-1px] font-normal">&#8599;&#xFE0E;</span>
+      <a href={lang === 'en' ? '/about-me/' : '/es/about-me/'} data-nav-link="about" class="hidden sm:inline text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+        {t('nav.about')}
       </a>
       <!-- Dark mode toggle -->
       <button
         id="theme-toggle"
         type="button"
-        class="p-2 rounded-lg text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-dark-card transition-colors"
+        class="p-2 rounded-lg text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white hover:bg-gray-300 dark:hover:bg-dark-card transition-colors"
         aria-label="Toggle dark mode"
       >
         <!-- Moon icon (visible in dark mode) -->
@@ -53,7 +44,7 @@ const esPath = lang === 'en' ? `/es${pathname}${hash}` : pathname + hash;
         <button
           type="button"
           id="lang-toggle"
-          class="flex items-center gap-1 px-2 py-1 text-xs font-semibold rounded-md text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white border border-gray-300 dark:border-dark-border hover:border-primary transition-colors"
+          class="flex items-center gap-1 px-2 py-1 text-xs font-semibold rounded-md text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white border border-gray-200 dark:border-dark-border hover:border-primary transition-colors"
           aria-haspopup="listbox"
           aria-expanded="false"
         >
@@ -64,15 +55,15 @@ const esPath = lang === 'en' ? `/es${pathname}${hash}` : pathname + hash;
         <ul
           id="lang-menu"
           role="listbox"
-          class="hidden absolute right-0 mt-1 w-28 rounded-md border border-gray-200 dark:border-dark-border bg-white dark:bg-dark-card shadow-lg overflow-hidden text-xs font-semibold"
+          class="hidden absolute right-0 mt-1 w-28 rounded-md border border-gray-300 dark:border-dark-border bg-gray-200 dark:bg-dark-card shadow-lg overflow-hidden text-xs font-semibold"
         >
           <li>
-            <a href={enPath} class:list={['block px-3 py-2 transition-colors', lang === 'en' ? 'text-primary bg-primary/5' : 'text-gray-800 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-border']}>
+            <a href={enPath} class:list={['block px-3 py-2 transition-colors', lang === 'en' ? 'text-primary bg-primary/5' : 'text-gray-800 dark:text-dark-muted hover:bg-gray-300 dark:hover:bg-dark-border']}>
               English
             </a>
           </li>
           <li>
-            <a href={esPath} class:list={['block px-3 py-2 transition-colors', lang === 'es' ? 'text-primary bg-primary/5' : 'text-gray-800 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-border']}>
+            <a href={esPath} class:list={['block px-3 py-2 transition-colors', lang === 'es' ? 'text-primary bg-primary/5' : 'text-gray-800 dark:text-dark-muted hover:bg-gray-300 dark:hover:bg-dark-border']}>
               Español
             </a>
           </li>
@@ -82,7 +73,7 @@ const esPath = lang === 'en' ? `/es${pathname}${hash}` : pathname + hash;
       <button
         id="mobile-menu-toggle"
         type="button"
-        class="sm:hidden p-2 rounded-lg text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-dark-card transition-colors"
+        class="sm:hidden p-2 rounded-lg text-gray-800 dark:text-dark-muted hover:text-gray-900 dark:hover:text-white hover:bg-gray-300 dark:hover:bg-dark-card transition-colors"
         aria-label="Open menu"
         aria-expanded="false"
       >
@@ -94,17 +85,11 @@ const esPath = lang === 'en' ? `/es${pathname}${hash}` : pathname + hash;
   <!-- Mobile menu panel -->
   <div id="mobile-menu" class="hidden sm:hidden border-t border-gray-200 dark:border-dark-border bg-white/95 dark:bg-dark-bg/95 backdrop-blur-md">
     <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-2">
-      <a href={lang === 'en' ? '/' : '/es/'} data-nav-link="home" class="mobile-nav-link px-3 py-2 rounded-lg text-gray-800 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-card transition-colors text-sm">
-        {t('nav.home')}
+      <a href={lang === 'en' ? '/' : '/es/'} data-nav-link="home" class="mobile-nav-link px-3 py-2 rounded-lg text-gray-800 dark:text-dark-muted hover:bg-gray-300 dark:hover:bg-dark-card transition-colors text-sm">
+        {t('nav.blog')}
       </a>
-      <a href={`${lang === 'en' ? '/' : '/es/'}#experience`} data-nav-link="experience" class="mobile-nav-link px-3 py-2 rounded-lg text-gray-800 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-card transition-colors text-sm">
-        {t('section.experience')}
-      </a>
-      <a href={`${lang === 'en' ? '/' : '/es/'}#projects`} data-nav-link="projects" class="mobile-nav-link px-3 py-2 rounded-lg text-gray-800 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-card transition-colors text-sm">
-        {t('section.personal')}
-      </a>
-      <a href={lang === 'en' ? '/blog/' : '/es/blog/'} data-nav-link="blog" class="mobile-nav-link px-3 py-2 rounded-lg text-gray-800 dark:text-dark-muted hover:bg-gray-100 dark:hover:bg-dark-card transition-colors text-sm">
-        {t('nav.blog')} <span class="inline-block translate-y-[-1px] font-normal">&#8599;&#xFE0E;</span>
+      <a href={lang === 'en' ? '/about/' : '/es/about/'} data-nav-link="about" class="mobile-nav-link px-3 py-2 rounded-lg text-gray-800 dark:text-dark-muted hover:bg-gray-300 dark:hover:bg-dark-card transition-colors text-sm">
+        {t('nav.about')}
       </a>
     </div>
   </div>
@@ -170,83 +155,22 @@ const esPath = lang === 'en' ? `/es${pathname}${hash}` : pathname + hash;
       });
     }
 
-    // Highlight on click and handle smooth scrolling on the homepage
-    const path = window.location.pathname.replace(/\/$/, '') || '/';
-    const isHomePage = path === '' || path === '/' || path === '/es';
+    // Highlight on click
     navLinks.forEach((link) => {
-      link.addEventListener('click', (e) => {
-        const navId = link.dataset.navLink;
-        setActive(navId);
-
-        // If already on the homepage, scroll smoothly instead of full-page navigation
-        if (isHomePage && navId !== 'blog') {
-          e.preventDefault();
-          if (navId === 'home') {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            history.replaceState(null, '', window.location.pathname);
-          } else {
-            const target = document.getElementById(navId);
-            if (target) {
-              target.scrollIntoView({ behavior: 'smooth' });
-              history.replaceState(null, '', '#' + navId);
-            }
-          }
-        }
+      link.addEventListener('click', () => {
+        setActive(link.dataset.navLink);
       });
     });
 
+    const path = window.location.pathname.replace(/\/$/, '') || '/';
+    const isHomePage = path === '' || path === '/' || path === '/es';
     const isBlogPage = path.startsWith('/blog') || path.startsWith('/es/blog');
+    const isAboutPage = path.startsWith('/about') || path.startsWith('/es/about');
 
-    if (isBlogPage) {
-      setActive('blog');
-    } else if (isHomePage) {
-      // Collect section IDs that have matching nav links
-      const navSectionIds = new Set();
-      navLinks.forEach((link) => {
-        const id = link.dataset.navLink;
-        if (id && id !== 'home') navSectionIds.add(id);
-      });
-      const sections = Array.from(document.querySelectorAll('section[id]'))
-        .filter((s) => navSectionIds.has(s.id));
-
-      // If there's a hash in the URL (e.g. navigated from blog to /#experience),
-      // lock the highlight until the browser finishes scrolling to the target.
-      const hash = window.location.hash.replace('#', '');
-      let hashLock = !!(hash && document.getElementById(hash));
-      if (hashLock) {
-        setActive(hash);
-        window.addEventListener('scroll', function unlock() {
-          hashLock = false;
-          window.removeEventListener('scroll', unlock);
-        }, { once: true });
-        setTimeout(() => { hashLock = false; }, 800);
-      } else if (window.scrollY < 100) {
-        setActive('home');
-      }
-
-      function updateActiveFromScroll() {
-        if (hashLock) return;
-        if (window.scrollY < 100) {
-          setActive('home');
-          return;
-        }
-        let closest = null;
-        let closestDist = Infinity;
-        sections.forEach((section) => {
-          const dist = Math.abs(section.getBoundingClientRect().top);
-          if (dist < closestDist) {
-            closestDist = dist;
-            closest = section.id;
-          }
-        });
-        if (closest) setActive(closest);
-      }
-
-      if (sections.length > 0) {
-        window.addEventListener('scroll', updateActiveFromScroll, { passive: true });
-        // Run once immediately to set initial state
-        updateActiveFromScroll();
-      }
+    if (isAboutPage) {
+      setActive('about');
+    } else if (isBlogPage || isHomePage) {
+      setActive('home');
     }
   });
 </script>

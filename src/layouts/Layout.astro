@@ -13,7 +13,7 @@ const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang={lang} class="scroll-smooth">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,11 +38,38 @@ const lang = getLangFromUrl(Astro.url);
       });
     </script>
   </head>
-  <body class="bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text min-h-screen font-sans antialiased transition-colors duration-300">
+  <body class="bg-gray-100 dark:bg-dark-bg text-gray-900 dark:text-dark-text min-h-screen font-sans antialiased transition-colors duration-300">
     <Header />
     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <slot />
     </main>
     <Footer />
+    <button
+      id="go-to-top"
+      type="button"
+      class="fixed bottom-6 right-6 z-50 hidden p-3 rounded-full bg-primary text-white shadow-lg hover:bg-primary/90 transition-all duration-300 opacity-0"
+      aria-label="Go to top"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+    </button>
+    <script is:inline>
+      document.addEventListener('astro:page-load', () => {
+        const btn = document.getElementById('go-to-top');
+        if (!btn) return;
+        function toggle() {
+          if (window.scrollY > 300) {
+            btn.classList.remove('hidden');
+            requestAnimationFrame(() => btn.classList.add('opacity-100'));
+          } else {
+            btn.classList.remove('opacity-100');
+            btn.classList.add('opacity-0');
+            setTimeout(() => { if (window.scrollY <= 300) btn.classList.add('hidden'); }, 300);
+          }
+        }
+        window.addEventListener('scroll', toggle, { passive: true });
+        btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        toggle();
+      });
+    </script>
   </body>
 </html>
