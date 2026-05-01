@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" fill="none">
+  <rect width="800" height="400" fill="#1e293b"/>
+  <rect x="340" y="100" width="120" height="120" rx="10" fill="#3b82f6" opacity="0.8"/>
+  <circle cx="380" cy="140" r="15" fill="white" opacity="0.6"/>
+  <circle cx="420" cy="140" r="15" fill="white" opacity="0.6"/>
+  <rect x="365" y="170" width="70" height="10" rx="5" fill="white" opacity="0.4"/>
+  <path d="M360 240 L440 240" stroke="#3b82f6" stroke-width="3"/>
+  <rect x="360" y="250" width="80" height="80" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4"/>
+  <text x="400" y="300" text-anchor="middle" font-family="system-ui,sans-serif" font-size="36" font-weight="bold" fill="white">Face2Sprite</text>
+  <text x="400" y="340" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" fill="#94a3b8">Face to pixel art generator</text>
+</svg>

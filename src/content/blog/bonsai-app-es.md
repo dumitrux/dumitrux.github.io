@@ -5,6 +5,7 @@ description: "Una app móvil construida con React Native y Expo para ayudar a lo
 date: 2026-04-20
 tags: ["Projects", "Software"]
 secondaryTags: ["React Native", "Expo", "Mobile", "Salud Mental"]
+thumbnail: "/images/blog/bonsai-app-thumbnail.svg"
 lang: es
 ---
 

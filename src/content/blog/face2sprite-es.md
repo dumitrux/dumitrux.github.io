@@ -5,6 +5,7 @@ description: "Un proyecto de hackathon que convierte fotografías de rostros en 
 date: 2026-01-02
 tags: ["Projects"]
 secondaryTags: ["Hackathon", "Python", "Procesamiento de Imagen"]
+thumbnail: "/images/blog/face2sprite-thumbnail.jpg"
 lang: es
 ---
 
@@ -48,3 +49,5 @@ Construir esto en un tiempo limitado nos obligó a tomar decisiones pragmáticas
 ## Pruébalo
 
 El proyecto es open source: [Face2Sprite en GitHub](https://github.com/dumitrux/Face2Sprite)
+
+[Face2Sprite en Devpost](https://devpost.com/software/face2sprite)

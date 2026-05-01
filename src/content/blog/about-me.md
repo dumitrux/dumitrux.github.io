@@ -5,6 +5,7 @@ description: "My approach to engineering, career background in healthcare and ph
 date: 2026-01-01
 tags: ["Personal"]
 secondaryTags: ["Career"]
+thumbnail: "/images/blog/about-me-thumbnail.svg"
 lang: en
 ---
 

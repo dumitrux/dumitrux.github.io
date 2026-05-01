@@ -5,6 +5,7 @@ description: "A hackathon project that converts face photographs into retro-styl
 date: 2026-01-02
 tags: ["Projects"]
 secondaryTags: ["Hackathon", "Python", "Image Processing"]
+thumbnail: "/images/blog/face2sprite-thumbnail.jpg"
 lang: en
 ---
 
@@ -48,3 +49,5 @@ Building this in a limited timeframe forced us to make pragmatic decisions:
 ## Try It
 
 The project is open source: [Face2Sprite on GitHub](https://github.com/dumitrux/Face2Sprite)
+
+[Face2Sprite on Devpost](https://devpost.com/software/face2sprite)

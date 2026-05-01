@@ -17,8 +17,8 @@ const { Content } = await render(post);
 ---
 
 <Layout title={`${post.data.title} | Dumitru`}>
-  <article class="py-16 max-w-3xl mx-auto">
-    <a href="/" class="text-primary text-sm hover:underline mb-6 inline-block">&larr; Back to blog</a>
+  <article class="pt-8 pb-16 max-w-3xl mx-auto">
+    <button id="back-btn" onclick="history.back()" class="text-primary text-sm hover:underline mb-6 inline-block cursor-pointer">&larr; Back</button>
 
     {post.data.thumbnail && (
       <img

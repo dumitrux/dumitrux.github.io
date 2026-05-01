@@ -5,6 +5,7 @@ description: "Una simulación interactiva del sistema solar en 3D construida con
 date: 2026-01-05
 tags: ["Projects", "Software"]
 secondaryTags: ["Three.js", "WebGL", "JavaScript"]
+thumbnail: "/images/blog/solar-system-threejs-thumbnail.jpg"
 lang: es
 ---
 

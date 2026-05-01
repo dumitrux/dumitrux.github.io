@@ -5,6 +5,7 @@ description: "An interactive 3D solar system simulation built with Three.js and 
 date: 2026-01-05
 tags: ["Projects", "Software"]
 secondaryTags: ["Three.js", "WebGL", "JavaScript"]
+thumbnail: "/images/blog/solar-system-threejs-thumbnail.jpg"
 lang: en
 ---
 

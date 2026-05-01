@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" fill="none">
+  <rect width="800" height="400" fill="#1e293b"/>
+  <circle cx="400" cy="160" r="50" fill="#3b82f6" opacity="0.8"/>
+  <circle cx="400" cy="160" r="30" fill="#fbbf24" opacity="0.9"/>
+  <circle cx="330" cy="200" r="15" fill="#3b82f6" opacity="0.5"/>
+  <circle cx="470" cy="200" r="20" fill="#3b82f6" opacity="0.4"/>
+  <circle cx="360" cy="120" r="10" fill="#3b82f6" opacity="0.3"/>
+  <ellipse cx="400" cy="160" rx="90" ry="90" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.3"/>
+  <text x="400" y="300" text-anchor="middle" font-family="system-ui,sans-serif" font-size="32" font-weight="bold" fill="white">Solar System</text>
+  <text x="400" y="340" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" fill="#94a3b8">Three.js 3D Visualization</text>
+</svg>

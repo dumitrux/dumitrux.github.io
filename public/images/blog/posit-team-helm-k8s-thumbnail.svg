@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" fill="none">
+  <rect width="800" height="400" fill="#1e293b"/>
+  <path d="M350 200 L380 140 L410 180 L440 120 L470 160" stroke="#3b82f6" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="350" cy="200" r="5" fill="#3b82f6"/>
+  <circle cx="380" cy="140" r="5" fill="#3b82f6"/>
+  <circle cx="410" cy="180" r="5" fill="#3b82f6"/>
+  <circle cx="440" cy="120" r="5" fill="#3b82f6"/>
+  <circle cx="470" cy="160" r="5" fill="#3b82f6"/>
+  <rect x="320" y="220" width="180" height="4" rx="2" fill="white" opacity="0.2"/>
+  <text x="400" y="290" text-anchor="middle" font-family="system-ui,sans-serif" font-size="32" font-weight="bold" fill="white">Posit Team + Helm</text>
+  <text x="400" y="330" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" fill="#94a3b8">Kubernetes Data Science Platform</text>
+</svg>

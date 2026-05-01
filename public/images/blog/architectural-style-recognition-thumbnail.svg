@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" fill="none">
+  <rect width="800" height="400" fill="#1e293b"/>
+  <rect x="300" y="100" width="200" height="140" rx="10" fill="#3b82f6" opacity="0.8"/>
+  <rect x="320" y="120" width="60" height="40" rx="5" fill="white" opacity="0.3"/>
+  <rect x="320" y="170" width="160" height="8" rx="4" fill="white" opacity="0.3"/>
+  <rect x="320" y="185" width="120" height="8" rx="4" fill="white" opacity="0.3"/>
+  <rect x="320" y="200" width="140" height="8" rx="4" fill="white" opacity="0.3"/>
+  <text x="400" y="300" text-anchor="middle" font-family="system-ui,sans-serif" font-size="32" font-weight="bold" fill="white">Architecture Recognition</text>
+  <text x="400" y="340" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" fill="#94a3b8">Deep Learning &amp; Computer Vision</text>
+</svg>

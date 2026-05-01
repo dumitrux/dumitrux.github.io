@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" fill="none">
+  <rect width="800" height="400" fill="#1e293b"/>
+  <ellipse cx="400" cy="170" rx="80" ry="60" fill="#3b82f6" opacity="0.3" stroke="#3b82f6" stroke-width="2"/>
+  <ellipse cx="400" cy="170" rx="50" ry="35" fill="#3b82f6" opacity="0.5" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="400" cy="170" r="10" fill="white"/>
+  <rect x="330" y="140" width="10" height="60" fill="white" opacity="0.3" rx="2"/>
+  <text x="400" y="290" text-anchor="middle" font-family="system-ui,sans-serif" font-size="32" font-weight="bold" fill="white">Navigate MRI</text>
+  <text x="400" y="330" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" fill="#94a3b8">3D Mouse Brain Navigation</text>
+</svg>

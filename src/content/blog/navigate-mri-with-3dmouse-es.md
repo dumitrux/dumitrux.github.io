@@ -5,6 +5,7 @@ description: "Un proyecto de imagen médica que integra un SpaceMouse 3D con 3D 
 date: 2026-01-04
 tags: ["Projects"]
 secondaryTags: ["Imagen Médica", "3D Slicer", "Python"]
+thumbnail: "/images/blog/navigate-mri-thumbnail.svg"
 lang: es
 ---
 

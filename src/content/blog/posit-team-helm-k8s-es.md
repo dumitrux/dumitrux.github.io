@@ -5,6 +5,7 @@ description: "Un chart de Helm open source para desplegar la suite completa de P
 date: 2026-04-24
 tags: ["Projects", "DevOps", "Infrastructure"]
 secondaryTags: ["Helm", "Kubernetes", "RStudio"]
+thumbnail: "/images/blog/posit-team-helm-k8s-thumbnail.svg"
 lang: es
 ---
 

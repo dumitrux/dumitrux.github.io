@@ -7,7 +7,7 @@ const t = useTranslations(lang);
 const prefix = lang === 'es' ? '/es' : '';
 ---
 
-<section id="experience" class="py-12 scroll-mt-20">
+<section id="experience" class="py-6 scroll-mt-20">
   <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">{t('section.experience')}</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="experience-grid">
     {workExperience.map((project, i) => (
@@ -43,13 +43,23 @@ const prefix = lang === 'es' ? '/es' : '';
 
 <script is:inline>
   document.addEventListener('astro:page-load', () => {
-    document.getElementById('experience-toggle')?.addEventListener('click', function() {
-      const extras = document.querySelectorAll('.experience-extra');
+    const toggle = document.getElementById('experience-toggle');
+    if (!toggle) return;
+    const extras = document.querySelectorAll('.experience-extra');
+
+    // Restore state
+    if (sessionStorage.getItem('experienceExpanded') === 'true') {
+      extras.forEach(el => el.classList.remove('hidden'));
+      toggle.textContent = document.documentElement.lang === 'es' ? 'Ver menos' : 'View Less';
+    }
+
+    toggle.addEventListener('click', function() {
       const expanded = !extras[0]?.classList.contains('hidden');
       extras.forEach(el => el.classList.toggle('hidden', expanded));
       this.textContent = expanded
         ? (document.documentElement.lang === 'es' ? 'Ver todo' : 'View All')
         : (document.documentElement.lang === 'es' ? 'Ver menos' : 'View Less');
+      sessionStorage.setItem('experienceExpanded', !expanded);
     });
   });
 </script>

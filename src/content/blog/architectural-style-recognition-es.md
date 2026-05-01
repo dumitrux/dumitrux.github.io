@@ -5,6 +5,7 @@ description: "Un proyecto de deep learning que clasifica estilos arquitectónico
 date: 2026-01-03
 tags: ["Projects", "AI/ML"]
 secondaryTags: ["Deep Learning", "Visión por Computador", "Python"]
+thumbnail: "/images/blog/architectural-style-recognition-thumbnail.svg"
 lang: es
 ---
 

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" fill="none">
+  <rect width="800" height="400" fill="#1e293b"/>
+  <path d="M400 100 L400 180" stroke="#22c55e" stroke-width="4"/>
+  <path d="M400 180 Q370 150 350 130" stroke="#22c55e" stroke-width="3" fill="none"/>
+  <path d="M400 180 Q430 150 450 135" stroke="#22c55e" stroke-width="3" fill="none"/>
+  <path d="M400 140 Q380 120 365 110" stroke="#22c55e" stroke-width="2" fill="none"/>
+  <path d="M400 140 Q420 125 435 115" stroke="#22c55e" stroke-width="2" fill="none"/>
+  <rect x="380" y="180" width="40" height="50" rx="5" fill="#8B4513" opacity="0.8"/>
+  <ellipse cx="400" cy="230" rx="50" ry="15" fill="#22c55e" opacity="0.3"/>
+  <text x="400" y="290" text-anchor="middle" font-family="system-ui,sans-serif" font-size="36" font-weight="bold" fill="white">Bonsai App</text>
+  <text x="400" y="330" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" fill="#94a3b8">Plant care companion</text>
+</svg>

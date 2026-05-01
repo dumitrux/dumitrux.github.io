@@ -5,6 +5,7 @@ description: "Mi enfoque de ingeniería, trayectoria profesional en salud y farm
 date: 2026-01-01
 tags: ["Personal"]
 secondaryTags: ["Carrera"]
+thumbnail: "/images/blog/about-me-thumbnail.svg"
 lang: es
 ---
 

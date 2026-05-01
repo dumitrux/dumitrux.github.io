@@ -37,7 +37,7 @@ export const ui = {
     'blog.search': 'Search posts...',
     'blog.allTags': 'All',
     'blog.noResults': 'No posts match your search.',
-    'blog.postsPerPage': 'Show',
+    'blog.postsPerPage': 'Posts per page',
     'lang.toggle': 'ES',
   },
   es: {
@@ -71,7 +71,7 @@ export const ui = {
     'blog.search': 'Buscar artículos...',
     'blog.allTags': 'Todos',
     'blog.noResults': 'No hay artículos que coincidan con tu búsqueda.',
-    'blog.postsPerPage': 'Mostrar',
+    'blog.postsPerPage': 'Posts por página',
     'lang.toggle': 'EN',
   },
 } as const;
