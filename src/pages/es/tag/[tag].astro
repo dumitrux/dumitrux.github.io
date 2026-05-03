@@ -38,7 +38,7 @@ const posts = allPosts
     <div class="flex flex-wrap gap-2 mb-8">
       <a
         href="/es/"
-        class="px-3 py-1 text-xs font-semibold rounded-full border-[3px] transition-colors bg-transparent text-gray-800 dark:text-dark-muted border-gray-400 dark:border-dark-muted hover:border-primary hover:text-primary"
+        class="px-3 py-1 text-xs font-semibold rounded-full border-[3px] transition-all duration-200 bg-transparent text-gray-800 dark:text-dark-muted border-gray-400 dark:border-dark-muted hover:border-primary hover:text-primary hover:scale-105"
       >
         {t('blog.allTags')}
       </a>
@@ -46,9 +46,9 @@ const posts = allPosts
         <a
           href={`/es/tag/${t.toLowerCase().replace(/[\s/]+/g, '-')}/`}
           class:list={[
-            'px-3 py-1 text-xs rounded-full border transition-colors',
+            'px-3 py-1 text-xs rounded-full border transition-all duration-200 hover:scale-105',
             t === tag
-              ? 'bg-primary text-white border-primary'
+              ? 'bg-primary text-white border-primary hover:text-white hover:brightness-110'
               : 'bg-transparent text-gray-800 dark:text-dark-muted border-gray-200 dark:border-dark-border hover:border-primary hover:text-primary'
           ]}
         >

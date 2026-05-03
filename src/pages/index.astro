@@ -67,11 +67,11 @@ const searchIndex = posts.map((post) => ({
 
     <!-- Tag filter -->
     <div id="tag-filter" class="flex flex-wrap gap-2 mb-8">
-      <button data-tag="" class="tag-btn px-3 py-1 text-xs font-semibold rounded-full border-[3px] transition-colors bg-primary text-white border-primary">
+      <button data-tag="" class="tag-btn px-3 py-1 text-xs font-semibold rounded-full border-[3px] transition-all duration-200 bg-primary text-white border-primary hover:brightness-110 hover:scale-105">
         {t('blog.allTags')}
       </button>
       {allTags.map((tag) => (
-        <button data-tag={tag} class="tag-btn px-3 py-1 text-xs rounded-full border transition-colors bg-transparent text-gray-800 dark:text-dark-muted border-gray-300 dark:border-dark-border hover:border-primary hover:text-primary">
+        <button data-tag={tag} class="tag-btn px-3 py-1 text-xs rounded-full border transition-all duration-200 bg-transparent text-gray-800 dark:text-dark-muted border-gray-300 dark:border-dark-border hover:border-primary hover:text-primary hover:scale-105">
           {tag}
         </button>
       ))}
@@ -168,11 +168,11 @@ const searchIndex = posts.map((post) => ({
       // Update tag button styles
       tagButtons.forEach((b) => {
         if (b.dataset.tag === activeTag) {
-          b.classList.add('bg-primary', 'text-white', 'border-primary');
-          b.classList.remove('bg-transparent', 'text-gray-800', 'dark:text-dark-muted', 'border-gray-300', 'dark:border-dark-border');
+          b.classList.add('bg-primary', 'text-white', 'border-primary', 'hover:text-white', 'hover:brightness-110');
+          b.classList.remove('bg-transparent', 'text-gray-800', 'dark:text-dark-muted', 'border-gray-300', 'dark:border-dark-border', 'hover:text-primary', 'hover:border-primary');
         } else {
-          b.classList.remove('bg-primary', 'text-white', 'border-primary');
-          b.classList.add('bg-transparent', 'text-gray-800', 'dark:text-dark-muted', 'border-gray-300', 'dark:border-dark-border');
+          b.classList.remove('bg-primary', 'text-white', 'border-primary', 'hover:text-white', 'hover:brightness-110');
+          b.classList.add('bg-transparent', 'text-gray-800', 'dark:text-dark-muted', 'border-gray-300', 'dark:border-dark-border', 'hover:text-primary', 'hover:border-primary');
         }
       });
     }
@@ -300,11 +300,11 @@ const searchIndex = posts.map((post) => ({
         currentPage = 1;
         tagButtons.forEach((b) => {
           if (b === btn) {
-            b.classList.add('bg-primary', 'text-white', 'border-primary');
-            b.classList.remove('bg-transparent', 'text-gray-800', 'dark:text-dark-muted', 'border-gray-300', 'dark:border-dark-border');
+            b.classList.add('bg-primary', 'text-white', 'border-primary', 'hover:text-white', 'hover:brightness-110');
+            b.classList.remove('bg-transparent', 'text-gray-800', 'dark:text-dark-muted', 'border-gray-300', 'dark:border-dark-border', 'hover:text-primary', 'hover:border-primary');
           } else {
-            b.classList.remove('bg-primary', 'text-white', 'border-primary');
-            b.classList.add('bg-transparent', 'text-gray-800', 'dark:text-dark-muted', 'border-gray-300', 'dark:border-dark-border');
+            b.classList.remove('bg-primary', 'text-white', 'border-primary', 'hover:text-white', 'hover:brightness-110');
+            b.classList.add('bg-transparent', 'text-gray-800', 'dark:text-dark-muted', 'border-gray-300', 'dark:border-dark-border', 'hover:text-primary', 'hover:border-primary');
           }
         });
         filterPosts();
