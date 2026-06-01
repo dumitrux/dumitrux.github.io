@@ -14,11 +14,23 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+const site = Astro.site?.origin ?? 'https://dumitrux.github.io';
+const canonical = `${site}/blog/${post.data.permalink}/`;
+const alternateEn = canonical;
+const alternateEs = `${site}/es/blog/${post.data.permalink}/`;
 ---
 
-<Layout title={`${post.data.title} | Dumitru`}>
+<Layout
+  title={`${post.data.title} | Dumitru`}
+  description={post.data.description}
+  image={post.data.thumbnail}
+  canonical={canonical}
+  alternateEn={alternateEn}
+  alternateEs={alternateEs}
+>
   <article class="pt-8 pb-16 max-w-3xl mx-auto">
-    <button id="back-btn" onclick="history.back()" class="text-primary text-sm hover:underline mb-6 inline-block cursor-pointer">&larr; Back</button>
+    <button id="back-btn" type="button" class="text-primary text-sm hover:underline mb-6 inline-block cursor-pointer">&larr; Back</button>
 
     {post.data.thumbnail && (
       <img
@@ -59,3 +71,10 @@ const { Content } = await render(post);
     </div>
   </article>
 </Layout>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    const btn = document.getElementById('back-btn');
+    if (btn) btn.addEventListener('click', () => history.back());
+  });
+</script>

@@ -19,7 +19,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const allPosts = (await getCollection('blog')).filter((post) => post.data.lang === 'en');
-const mainTagOrder = ['DevOps', 'Data', 'AI/ML', 'Infrastructure', 'Personal', 'Software', 'Projects'];
+const mainTagOrder = ['DevOps', 'Data', 'AI/ML', 'AI', 'Infrastructure', 'Software', 'Software Engineering', 'Python', 'Computer Science', 'Architecture', 'Compliance', 'Personal', 'Projects'];
 const usedTags = new Set(allPosts.flatMap((post) => post.data.tags ?? []));
 const allTags = mainTagOrder.filter((tag) => usedTags.has(tag));
 
@@ -32,7 +32,12 @@ const posts = allPosts
   });
 ---
 
-<Layout title={`${tag} | Blog | Dumitru`}>
+<Layout
+  title={`${tag} | Blog | Dumitru`}
+  description={`Blog posts tagged with ${tag}.`}
+  alternateEn={`https://dumitrux.github.io/tag/${tag.toLowerCase().replace(/[\s/]+/g, '-')}/`}
+  alternateEs={`https://dumitrux.github.io/es/tag/${tag.toLowerCase().replace(/[\s/]+/g, '-')}/`}
+>
   <section class="py-8">
     <!-- Tag filter -->
     <div class="flex flex-wrap gap-2 mb-8">
@@ -64,12 +69,14 @@ const posts = allPosts
             href={`/blog/${post.data.permalink}/`}
             class="group bg-gray-200 dark:bg-dark-card border-2 border-gray-300 dark:border-dark-border rounded-xl overflow-hidden hover:border-primary/50 transition-colors flex flex-col h-full"
           >
-            <img
-              src={post.data.thumbnail || '/images/blog/about-me-thumbnail.svg'}
-              alt={post.data.title}
-              class="w-full h-48 object-cover"
-              loading="lazy"
-            />
+            {post.data.thumbnail && (
+              <img
+                src={post.data.thumbnail}
+                alt={post.data.title}
+                class="w-full h-48 object-cover"
+                loading="lazy"
+              />
+            )}
             <div class="p-5 flex flex-col flex-1">
               <p class="text-xs text-gray-500 dark:text-dark-muted mb-2">
                 {post.data.pinned && <span class="text-primary font-semibold mr-2">📌 Pinned</span>}

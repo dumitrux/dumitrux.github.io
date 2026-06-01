@@ -41,18 +41,37 @@ public/
 
 ## Run Locally
 
+### Option 1: Dev Container (recommended)
+
+Run inside a container — no Node.js or pnpm install needed on your machine.
+
+**Prerequisites:** [Docker](https://www.docker.com/) + [VS Code](https://code.visualstudio.com/) with the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers), **or** [GitHub Codespaces](https://github.com/codespaces).
+
+1. Open the repo in VS Code
+2. Press `Ctrl+Shift+P` → **Dev Containers: Reopen in Container**
+3. Wait for the container to build (first time takes ~1 min, dependencies auto-install)
+4. Run:
+
+```bash
+pnpm dev
+```
+
+Or open in GitHub Codespaces directly from the repo page — click **Code → Codespaces → New codespace**.
+
+### Option 2: Local
+
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Start dev server
-npm run dev
+pnpm dev
 
 # Build for production
-npm run build
+pnpm build
 
 # Preview production build
-npm run preview
+pnpm preview
 ```
 
 ## Deploy to GitHub Pages

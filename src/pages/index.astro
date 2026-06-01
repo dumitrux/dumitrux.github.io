@@ -14,7 +14,7 @@ const posts = (await getCollection('blog'))
     return b.data.date.valueOf() - a.data.date.valueOf();
   });
 
-const mainTagOrder = ['DevOps', 'Data', 'AI/ML', 'Infrastructure', 'Personal', 'Software', 'Projects'];
+const mainTagOrder = ['DevOps', 'Data', 'AI/ML', 'AI', 'Infrastructure', 'Software', 'Software Engineering', 'Python', 'Computer Science', 'Architecture', 'Compliance', 'Personal', 'Projects'];
 const usedTags = new Set(posts.flatMap((post) => post.data.tags ?? []));
 const allTags = mainTagOrder.filter((tag) => usedTags.has(tag));
 
@@ -53,7 +53,12 @@ const searchIndex = posts.map((post) => ({
 }));
 ---
 
-<Layout title="Blog | Dumitru">
+<Layout
+  title="Blog | Dumitru"
+  description="Dumitru - Data Platform Specialist, Cloud Engineer, DevOps & Data Engineer portfolio and blog."
+  alternateEn="https://dumitrux.github.io/"
+  alternateEs="https://dumitrux.github.io/es/"
+>
   <section class="pt-8 pb-4">
     <!-- Search -->
     <div class="mb-6 flex flex-col sm:flex-row gap-3">
@@ -85,12 +90,14 @@ const searchIndex = posts.map((post) => ({
             data-permalink={post.data.permalink}
             class="blog-card group bg-gray-200 dark:bg-dark-card border-2 border-gray-300 dark:border-dark-border rounded-xl overflow-hidden hover:border-primary/50 transition-colors flex flex-col h-full"
           >
-            <img
-              src={post.data.thumbnail || '/images/blog/about-me-thumbnail.svg'}
-              alt={post.data.title}
-              class="w-full h-48 object-cover"
-              loading="lazy"
-            />
+            {post.data.thumbnail && (
+              <img
+                src={post.data.thumbnail}
+                alt={post.data.title}
+                class="w-full h-48 object-cover"
+                loading="lazy"
+              />
+            )}
             <div class="p-5 flex flex-col flex-1">
               <p class="text-xs text-gray-500 dark:text-dark-muted mb-2">
                 {post.data.pinned && <span class="text-primary font-semibold mr-2">📌 Pinned</span>}

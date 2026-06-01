@@ -4,12 +4,29 @@ dist/
 # dependencies
 node_modules/
 
+# pnpm
+.pnpm-store/
+.pnpm-debug.log
+
 # logs
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # environment variables
 .env
-.env.production
+.env.*
+!.env.example
+
+# astro
+.astro/
+
+# editor
+.vscode/
+*.swp
+*.swo
+*~
 
 # macOS
 .DS_Store
+Thumbs.db

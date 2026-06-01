@@ -13,9 +13,14 @@ const { exp } = Astro.props;
 const lang = 'en';
 ---
 
-<Layout title={`${exp.name} | Dumitru`}>
+<Layout
+  title={`${exp.name} | Dumitru`}
+  description={exp.details[lang]}
+  alternateEn={`https://dumitrux.github.io/experience/${exp.slug}/`}
+  alternateEs={`https://dumitrux.github.io/es/experience/${exp.slug}/`}
+>
   <section class="py-8 max-w-3xl mx-auto">
-    <button onclick="history.back()" class="text-primary hover:underline text-sm mb-6 inline-flex items-center gap-1 cursor-pointer">
+    <button id="back-btn" type="button" class="text-primary hover:underline text-sm mb-6 inline-flex items-center gap-1 cursor-pointer">
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
       Back to Experience
     </button>
@@ -31,3 +36,10 @@ const lang = 'en';
     </div>
   </section>
 </Layout>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    const btn = document.getElementById('back-btn');
+    if (btn) btn.addEventListener('click', () => history.back());
+  });
+</script>
