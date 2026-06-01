@@ -5,6 +5,7 @@ description: "How to build neural networks with PyTorch, understand backpropagat
 date: 2026-05-31
 tags: ["AI", "Data"]
 secondaryTags: ["Deep Learning", "PyTorch", "Neural Networks"]
+thumbnail: "/images/blog/deep-learning-thumbnail.svg"
 lang: en
 ---
 

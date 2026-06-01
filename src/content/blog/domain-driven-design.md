@@ -5,6 +5,7 @@ description: "An overview of Domain Driven Design — bounded contexts, aggregat
 date: 2026-05-31
 tags: ["Software Engineering"]
 secondaryTags: ["DDD", "Architecture", "Design Patterns"]
+thumbnail: "/images/blog/domain-driven-design-thumbnail.svg"
 lang: en
 ---
 

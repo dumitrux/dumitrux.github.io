@@ -5,6 +5,7 @@ description: "A practical comparison of Apache Spark, Hadoop, and Kafka — what
 date: 2026-05-31
 tags: ["Data", "Infrastructure"]
 secondaryTags: ["Spark", "Hadoop", "Kafka", "Big Data"]
+thumbnail: "/images/blog/spark-hadoop-kafka-thumbnail.svg"
 lang: en
 ---
 

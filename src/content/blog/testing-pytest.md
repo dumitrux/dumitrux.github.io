@@ -5,6 +5,7 @@ description: "Why testing matters, how to use Pytest, and why Test-Driven Develo
 date: 2026-05-31
 tags: ["Software", "Python"]
 secondaryTags: ["Testing", "Pytest", "TDD", "AI"]
+thumbnail: "/images/blog/testing-pytest-thumbnail.svg"
 lang: en
 ---
 

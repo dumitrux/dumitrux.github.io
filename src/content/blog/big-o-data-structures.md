@@ -5,6 +5,7 @@ description: "A practical guide to Big O notation, common data structures, and c
 date: 2026-05-31
 tags: ["Software", "Computer Science"]
 secondaryTags: ["Algorithms", "Data Structures", "Concurrency"]
+thumbnail: "/images/blog/big-o-data-structures-thumbnail.svg"
 lang: en
 ---
 

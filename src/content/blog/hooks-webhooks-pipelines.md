@@ -5,6 +5,7 @@ description: "Understanding hooks in different contexts — webhooks for APIs, G
 date: 2026-05-31
 tags: ["Software", "DevOps"]
 secondaryTags: ["Webhooks", "Git Hooks", "Data Pipelines"]
+thumbnail: "/images/blog/hooks-webhooks-pipelines-thumbnail.svg"
 lang: en
 ---
 

@@ -5,6 +5,7 @@ description: "A practical overview of Data Mesh architecture, its four principle
 date: 2026-05-31
 tags: ["Data", "Architecture"]
 secondaryTags: ["Data Mesh", "Data Platform", "Domain-Driven Design"]
+thumbnail: "/images/blog/data-mesh-thumbnail.svg"
 lang: en
 ---
 

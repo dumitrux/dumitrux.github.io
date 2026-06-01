@@ -5,6 +5,7 @@ description: "Una guía práctica de preprocesamiento y limpieza de datos usando
 date: 2026-05-31
 tags: ["Data", "Python"]
 secondaryTags: ["NumPy", "Pandas", "Matplotlib", "Seaborn"]
+thumbnail: "/images/blog/data-handling-python-thumbnail.svg"
 lang: es
 ---
 

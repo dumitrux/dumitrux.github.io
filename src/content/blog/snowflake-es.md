@@ -3,8 +3,9 @@ permalink: snowflake
 title: "Snowflake: Plataforma de Datos en la Nube"
 description: "Una visión general de Snowflake — su arquitectura, Snowpipe, Snowpark y características clave para ingeniería de datos moderna."
 date: 2026-05-31
-tags: ["Data", "Infraestructura"]
+tags: ["Data", "Infrastructure"]
 secondaryTags: ["Snowflake", "Cloud", "Data Warehouse"]
+thumbnail: "/images/blog/snowflake-thumbnail.svg"
 lang: es
 ---
 

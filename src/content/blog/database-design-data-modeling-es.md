@@ -5,6 +5,7 @@ description: "Esquemas normalizados vs desnormalizados, modelado relacional y cu
 date: 2026-05-31
 tags: ["Data", "Software"]
 secondaryTags: ["Base de Datos", "Modelado de Datos", "SQL", "Normalización"]
+thumbnail: "/images/blog/database-design-data-modeling-thumbnail.svg"
 lang: es
 ---
 

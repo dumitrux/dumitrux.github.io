@@ -5,6 +5,7 @@ description: "A practical guide to data preprocessing and cleaning using NumPy, 
 date: 2026-05-31
 tags: ["Data", "Python"]
 secondaryTags: ["NumPy", "Pandas", "Matplotlib", "Seaborn"]
+thumbnail: "/images/blog/data-handling-python-thumbnail.svg"
 lang: en
 ---
 

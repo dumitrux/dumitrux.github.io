@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+
+  <!-- Code blocks showing OOP concepts -->
+  <!-- Class box -->
+  <rect x="120" y="120" width="180" height="160" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <rect x="120" y="120" width="180" height="30" rx="8" fill="#3b82f6" opacity="0.15"/>
+  <text x="210" y="140" font-family="monospace" font-size="11" fill="#3b82f6" text-anchor="middle">class Animal</text>
+  <text x="140" y="170" font-family="monospace" font-size="9" fill="#94a3b8">- name: string</text>
+  <text x="140" y="188" font-family="monospace" font-size="9" fill="#94a3b8">- age: int</text>
+  <text x="140" y="210" font-family="monospace" font-size="9" fill="#10b981">+ speak()</text>
+  <text x="140" y="228" font-family="monospace" font-size="9" fill="#10b981">+ move()</text>
+  <text x="140" y="246" font-family="monospace" font-size="9" fill="#10b981">+ toString()</text>
+
+  <!-- Inheritance arrow -->
+  <line x1="210" y1="285" x2="210" y2="300" stroke="#94a3b8" stroke-width="2"/>
+  <polygon points="205,285 215,285 210,275" fill="#94a3b8"/>
+
+  <!-- Child classes -->
+  <rect x="100" y="300" width="80" height="35" rx="5" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <text x="140" y="322" font-family="monospace" font-size="9" fill="#10b981" text-anchor="middle">Dog</text>
+  <rect x="230" y="300" width="80" height="35" rx="5" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="270" y="322" font-family="monospace" font-size="9" fill="#f59e0b" text-anchor="middle">Cat</text>
+
+  <!-- Architecture patterns -->
+  <rect x="400" y="120" width="300" height="210" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+  <text x="550" y="145" font-family="monospace" font-size="12" fill="white" text-anchor="middle">Architecture Patterns</text>
+
+  <rect x="420" y="160" width="120" height="28" rx="4" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="1"/>
+  <text x="480" y="178" font-family="monospace" font-size="9" fill="#3b82f6" text-anchor="middle">MVC</text>
+  <rect x="560" y="160" width="120" height="28" rx="4" fill="#10b981" opacity="0.1" stroke="#10b981" stroke-width="1"/>
+  <text x="620" y="178" font-family="monospace" font-size="9" fill="#10b981" text-anchor="middle">MVVM</text>
+  <rect x="420" y="200" width="120" height="28" rx="4" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="1"/>
+  <text x="480" y="218" font-family="monospace" font-size="9" fill="#f59e0b" text-anchor="middle">Microservices</text>
+  <rect x="560" y="200" width="120" height="28" rx="4" fill="#a855f7" opacity="0.1" stroke="#a855f7" stroke-width="1"/>
+  <text x="620" y="218" font-family="monospace" font-size="9" fill="#a855f7" text-anchor="middle">Event-Driven</text>
+  <rect x="420" y="240" width="120" height="28" rx="4" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="1"/>
+  <text x="480" y="258" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="middle">Hexagonal</text>
+  <rect x="560" y="240" width="120" height="28" rx="4" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="1"/>
+  <text x="620" y="258" font-family="monospace" font-size="9" fill="#3b82f6" text-anchor="middle">Layered</text>
+
+  <!-- SOLID on bottom right -->
+  <text x="550" y="300" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">S · O · L · I · D</text>
+
+  <!-- Title -->
+  <text x="400" y="45" text-anchor="middle" font-family="system-ui,sans-serif" font-size="26" font-weight="bold" fill="white">Programming Fundamentals</text>
+  <text x="400" y="70" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#94a3b8">OOP, SOLID, and architecture patterns</text>
+</svg>

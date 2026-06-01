@@ -3,8 +3,9 @@ permalink: monitoring-observability
 title: "Monitorización y Observabilidad"
 description: "Por qué la monitorización importa para aplicaciones web, sistemas ML y plataformas de datos. Herramientas y prácticas clave."
 date: 2026-05-31
-tags: ["DevOps", "Infraestructura"]
+tags: ["DevOps", "Infrastructure"]
 secondaryTags: ["Monitorización", "Observabilidad", "Prometheus", "Grafana"]
+thumbnail: "/images/blog/monitoring-observability-thumbnail.svg"
 lang: es
 ---
 

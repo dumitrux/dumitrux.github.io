@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+
+  <!-- ER Diagram -->
+  <!-- Entity 1 -->
+  <rect x="120" y="140" width="140" height="120" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <rect x="120" y="140" width="140" height="30" rx="6" fill="#3b82f6" opacity="0.2"/>
+  <text x="190" y="160" font-family="monospace" font-size="11" fill="#3b82f6" text-anchor="middle">Users</text>
+  <text x="135" y="185" font-family="monospace" font-size="9" fill="#94a3b8">PK id</text>
+  <text x="135" y="200" font-family="monospace" font-size="9" fill="#94a3b8">name</text>
+  <text x="135" y="215" font-family="monospace" font-size="9" fill="#94a3b8">email</text>
+  <text x="135" y="230" font-family="monospace" font-size="9" fill="#94a3b8">FK role_id</text>
+
+  <!-- Entity 2 -->
+  <rect x="340" y="140" width="140" height="120" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+  <rect x="340" y="140" width="140" height="30" rx="6" fill="#10b981" opacity="0.2"/>
+  <text x="410" y="160" font-family="monospace" font-size="11" fill="#10b981" text-anchor="middle">Orders</text>
+  <text x="355" y="185" font-family="monospace" font-size="9" fill="#94a3b8">PK id</text>
+  <text x="355" y="200" font-family="monospace" font-size="9" fill="#94a3b8">FK user_id</text>
+  <text x="355" y="215" font-family="monospace" font-size="9" fill="#94a3b8">total</text>
+  <text x="355" y="230" font-family="monospace" font-size="9" fill="#94a3b8">status</text>
+
+  <!-- Entity 3 -->
+  <rect x="560" y="140" width="140" height="120" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="560" y="140" width="140" height="30" rx="6" fill="#f59e0b" opacity="0.2"/>
+  <text x="630" y="160" font-family="monospace" font-size="11" fill="#f59e0b" text-anchor="middle">Products</text>
+  <text x="575" y="185" font-family="monospace" font-size="9" fill="#94a3b8">PK id</text>
+  <text x="575" y="200" font-family="monospace" font-size="9" fill="#94a3b8">name</text>
+  <text x="575" y="215" font-family="monospace" font-size="9" fill="#94a3b8">price</text>
+  <text x="575" y="230" font-family="monospace" font-size="9" fill="#94a3b8">FK cat_id</text>
+
+  <!-- Relationship lines -->
+  <line x1="260" y1="200" x2="340" y2="200" stroke="#94a3b8" stroke-width="2"/>
+  <text x="300" y="193" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">1:N</text>
+  <line x1="480" y1="200" x2="560" y2="200" stroke="#94a3b8" stroke-width="2"/>
+  <text x="520" y="193" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">N:M</text>
+
+  <!-- Normalization levels -->
+  <rect x="220" y="300" width="60" height="24" rx="4" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+  <text x="250" y="316" font-family="monospace" font-size="9" fill="#3b82f6" text-anchor="middle">1NF</text>
+  <rect x="310" y="300" width="60" height="24" rx="4" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="1"/>
+  <text x="340" y="316" font-family="monospace" font-size="9" fill="#10b981" text-anchor="middle">2NF</text>
+  <rect x="400" y="300" width="60" height="24" rx="4" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
+  <text x="430" y="316" font-family="monospace" font-size="9" fill="#f59e0b" text-anchor="middle">3NF</text>
+  <rect x="490" y="300" width="60" height="24" rx="4" fill="#a855f7" opacity="0.2" stroke="#a855f7" stroke-width="1"/>
+  <text x="520" y="316" font-family="monospace" font-size="9" fill="#a855f7" text-anchor="middle">BCNF</text>
+
+  <!-- Title -->
+  <text x="400" y="50" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="bold" fill="white">Database Design &amp; Data Modeling</text>
+  <text x="400" y="75" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#94a3b8">ER diagrams, normalization, and schemas</text>
+</svg>

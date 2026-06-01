@@ -3,8 +3,9 @@ permalink: data-mesh
 title: "Data Mesh: Arquitectura de Datos Descentralizada"
 description: "Una visión práctica de la arquitectura Data Mesh, sus cuatro principios y cómo cambia la forma en que las organizaciones gestionan los datos analíticos."
 date: 2026-05-31
-tags: ["Data", "Arquitectura"]
+tags: ["Data", "Architecture"]
 secondaryTags: ["Data Mesh", "Plataforma de Datos", "Diseño Orientado a Dominio"]
+thumbnail: "/images/blog/data-mesh-thumbnail.svg"
 lang: es
 ---
 

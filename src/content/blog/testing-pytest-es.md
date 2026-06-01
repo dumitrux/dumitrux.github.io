@@ -5,6 +5,7 @@ description: "Por qué importa el testing, cómo usar Pytest, y por qué el Test
 date: 2026-05-31
 tags: ["Software", "Python"]
 secondaryTags: ["Testing", "Pytest", "TDD", "IA"]
+thumbnail: "/images/blog/testing-pytest-thumbnail.svg"
 lang: es
 ---
 

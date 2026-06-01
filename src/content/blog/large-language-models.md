@@ -5,6 +5,7 @@ description: "How transformers work, practical patterns like RAG and fine-tuning
 date: 2026-05-31
 tags: ["AI", "Software"]
 secondaryTags: ["LLM", "Transformers", "RAG", "Vector Databases"]
+thumbnail: "/images/blog/large-language-models-thumbnail.svg"
 lang: en
 ---
 

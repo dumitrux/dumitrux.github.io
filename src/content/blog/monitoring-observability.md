@@ -5,6 +5,7 @@ description: "Why monitoring matters for web apps, ML systems, and data platform
 date: 2026-05-31
 tags: ["DevOps", "Infrastructure"]
 secondaryTags: ["Monitoring", "Observability", "Prometheus", "Grafana"]
+thumbnail: "/images/blog/monitoring-observability-thumbnail.svg"
 lang: en
 ---
 

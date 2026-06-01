@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+
+  <!-- Python logo-like shapes -->
+  <rect x="150" y="140" width="130" height="40" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <text x="215" y="165" font-family="monospace" font-size="12" fill="#3b82f6" text-anchor="middle">NumPy</text>
+
+  <rect x="310" y="140" width="130" height="40" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+  <text x="375" y="165" font-family="monospace" font-size="12" fill="#10b981" text-anchor="middle">Pandas</text>
+
+  <rect x="150" y="220" width="130" height="40" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="215" y="245" font-family="monospace" font-size="12" fill="#f59e0b" text-anchor="middle">Matplotlib</text>
+
+  <rect x="310" y="220" width="130" height="40" rx="6" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <text x="375" y="245" font-family="monospace" font-size="12" fill="#ef4444" text-anchor="middle">Seaborn</text>
+
+  <!-- DataFrame preview -->
+  <rect x="510" y="130" width="200" height="140" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+  <rect x="510" y="130" width="200" height="25" rx="6" fill="#10b981" opacity="0.15"/>
+  <text x="540" y="148" font-family="monospace" font-size="9" fill="#10b981">col_a</text>
+  <text x="590" y="148" font-family="monospace" font-size="9" fill="#10b981">col_b</text>
+  <text x="650" y="148" font-family="monospace" font-size="9" fill="#10b981">col_c</text>
+  <text x="525" y="170" font-family="monospace" font-size="9" fill="#94a3b8">0</text>
+  <text x="540" y="170" font-family="monospace" font-size="9" fill="#94a3b8">1.23</text>
+  <text x="590" y="170" font-family="monospace" font-size="9" fill="#94a3b8">hello</text>
+  <text x="650" y="170" font-family="monospace" font-size="9" fill="#94a3b8">True</text>
+  <text x="525" y="188" font-family="monospace" font-size="9" fill="#94a3b8">1</text>
+  <text x="540" y="188" font-family="monospace" font-size="9" fill="#94a3b8">4.56</text>
+  <text x="590" y="188" font-family="monospace" font-size="9" fill="#94a3b8">world</text>
+  <text x="650" y="188" font-family="monospace" font-size="9" fill="#94a3b8">False</text>
+  <text x="525" y="206" font-family="monospace" font-size="9" fill="#94a3b8">2</text>
+  <text x="540" y="206" font-family="monospace" font-size="9" fill="#94a3b8">7.89</text>
+  <text x="590" y="206" font-family="monospace" font-size="9" fill="#94a3b8">data</text>
+  <text x="650" y="206" font-family="monospace" font-size="9" fill="#94a3b8">True</text>
+
+  <!-- Chart bars -->
+  <rect x="530" y="240" width="15" height="20" rx="2" fill="#3b82f6" opacity="0.6"/>
+  <rect x="555" y="230" width="15" height="30" rx="2" fill="#10b981" opacity="0.6"/>
+  <rect x="580" y="220" width="15" height="40" rx="2" fill="#f59e0b" opacity="0.6"/>
+  <rect x="605" y="235" width="15" height="25" rx="2" fill="#ef4444" opacity="0.6"/>
+  <rect x="630" y="225" width="15" height="35" rx="2" fill="#a855f7" opacity="0.6"/>
+
+  <!-- Python snake icon -->
+  <text x="260" y="200" font-family="monospace" font-size="14" fill="#94a3b8" text-anchor="middle">🐍</text>
+
+  <!-- Title -->
+  <text x="400" y="50" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="bold" fill="white">Data Handling with Python</text>
+  <text x="400" y="75" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#94a3b8">NumPy, Pandas, Matplotlib, Seaborn</text>
+</svg>

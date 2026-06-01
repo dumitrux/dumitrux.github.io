@@ -5,6 +5,7 @@ description: "An overview of dbt — the tool that brings software engineering b
 date: 2026-05-31
 tags: ["Data", "Infrastructure"]
 secondaryTags: ["dbt", "SQL", "Data Engineering", "ELT"]
+thumbnail: "/images/blog/dbt-thumbnail.svg"
 lang: en
 ---
 

@@ -5,6 +5,7 @@ description: "Core programming concepts, object-oriented programming, advanced P
 date: 2026-05-31
 tags: ["Software", "Python"]
 secondaryTags: ["OOP", "Architecture", "Design Patterns"]
+thumbnail: "/images/blog/programming-fundamentals-thumbnail.svg"
 lang: en
 ---
 

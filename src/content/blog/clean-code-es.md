@@ -5,6 +5,7 @@ description: "Los principios de código limpio más importantes para escribir so
 date: 2026-05-31
 tags: ["Software"]
 secondaryTags: ["Código Limpio", "Buenas Prácticas", "Refactoring"]
+thumbnail: "/images/blog/clean-code-thumbnail.svg"
 lang: es
 ---
 

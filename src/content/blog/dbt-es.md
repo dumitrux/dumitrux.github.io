@@ -3,8 +3,9 @@ permalink: dbt
 title: "dbt: Data Build Tool"
 description: "Una visión general de dbt — la herramienta que lleva las mejores prácticas de ingeniería de software a las transformaciones de datos en tu warehouse."
 date: 2026-05-31
-tags: ["Data", "Infraestructura"]
+tags: ["Data", "Infrastructure"]
 secondaryTags: ["dbt", "SQL", "Ingeniería de Datos", "ELT"]
+thumbnail: "/images/blog/dbt-thumbnail.svg"
 lang: es
 ---
 

@@ -5,6 +5,7 @@ description: "Key data literacy concepts every data professional should know —
 date: 2026-05-31
 tags: ["Data"]
 secondaryTags: ["Data Literacy", "BI", "Data Modeling"]
+thumbnail: "/images/blog/data-literacy-thumbnail.svg"
 lang: en
 ---
 

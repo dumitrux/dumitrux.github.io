@@ -5,6 +5,7 @@ description: "An overview of Denodo — the data virtualization platform that pr
 date: 2026-05-31
 tags: ["Data", "Infrastructure"]
 secondaryTags: ["Denodo", "Data Virtualization", "Data Integration"]
+thumbnail: "/images/blog/denodo-thumbnail.svg"
 lang: en
 ---
 

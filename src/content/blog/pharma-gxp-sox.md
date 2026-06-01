@@ -5,6 +5,7 @@ description: "An overview of GxP regulations in pharmaceuticals and SOX complian
 date: 2026-05-31
 tags: ["Data", "Compliance"]
 secondaryTags: ["GxP", "SOX", "Pharma", "Regulatory"]
+thumbnail: "/images/blog/pharma-gxp-sox-thumbnail.svg"
 lang: en
 ---
 

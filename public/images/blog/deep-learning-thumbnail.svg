@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+
+  <!-- Neural network layers -->
+  <!-- Input layer -->
+  <circle cx="180" cy="140" r="12" fill="#3b82f6" opacity="0.4" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="180" cy="190" r="12" fill="#3b82f6" opacity="0.4" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="180" cy="240" r="12" fill="#3b82f6" opacity="0.4" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="180" cy="290" r="12" fill="#3b82f6" opacity="0.4" stroke="#3b82f6" stroke-width="2"/>
+
+  <!-- Hidden layer 1 -->
+  <circle cx="320" cy="150" r="12" fill="#10b981" opacity="0.4" stroke="#10b981" stroke-width="2"/>
+  <circle cx="320" cy="200" r="12" fill="#10b981" opacity="0.4" stroke="#10b981" stroke-width="2"/>
+  <circle cx="320" cy="250" r="12" fill="#10b981" opacity="0.4" stroke="#10b981" stroke-width="2"/>
+  <circle cx="320" cy="300" r="12" fill="#10b981" opacity="0.4" stroke="#10b981" stroke-width="2"/>
+
+  <!-- Hidden layer 2 -->
+  <circle cx="460" cy="160" r="12" fill="#f59e0b" opacity="0.4" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="460" cy="210" r="12" fill="#f59e0b" opacity="0.4" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="460" cy="260" r="12" fill="#f59e0b" opacity="0.4" stroke="#f59e0b" stroke-width="2"/>
+
+  <!-- Output layer -->
+  <circle cx="600" cy="190" r="12" fill="#a855f7" opacity="0.4" stroke="#a855f7" stroke-width="2"/>
+  <circle cx="600" cy="240" r="12" fill="#a855f7" opacity="0.4" stroke="#a855f7" stroke-width="2"/>
+
+  <!-- Connections (simplified) -->
+  <line x1="192" y1="140" x2="308" y2="150" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
+  <line x1="192" y1="140" x2="308" y2="200" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
+  <line x1="192" y1="190" x2="308" y2="150" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
+  <line x1="192" y1="190" x2="308" y2="250" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
+  <line x1="192" y1="240" x2="308" y2="200" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
+  <line x1="192" y1="240" x2="308" y2="300" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
+  <line x1="192" y1="290" x2="308" y2="250" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
+  <line x1="192" y1="290" x2="308" y2="300" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
+
+  <line x1="332" y1="150" x2="448" y2="160" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
+  <line x1="332" y1="200" x2="448" y2="210" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
+  <line x1="332" y1="250" x2="448" y2="260" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
+  <line x1="332" y1="300" x2="448" y2="260" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
+  <line x1="332" y1="150" x2="448" y2="210" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
+  <line x1="332" y1="200" x2="448" y2="160" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
+
+  <line x1="472" y1="160" x2="588" y2="190" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
+  <line x1="472" y1="210" x2="588" y2="190" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
+  <line x1="472" y1="210" x2="588" y2="240" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
+  <line x1="472" y1="260" x2="588" y2="240" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Layer labels -->
+  <text x="180" y="330" font-family="monospace" font-size="10" fill="#3b82f6" text-anchor="middle">Input</text>
+  <text x="320" y="330" font-family="monospace" font-size="10" fill="#10b981" text-anchor="middle">Hidden</text>
+  <text x="460" y="330" font-family="monospace" font-size="10" fill="#f59e0b" text-anchor="middle">Hidden</text>
+  <text x="600" y="330" font-family="monospace" font-size="10" fill="#a855f7" text-anchor="middle">Output</text>
+
+  <!-- CNN/RNN labels on right -->
+  <rect x="650" y="150" width="80" height="24" rx="4" fill="#1e293b" stroke="#3b82f6" stroke-width="1"/>
+  <text x="690" y="166" font-family="monospace" font-size="9" fill="#3b82f6" text-anchor="middle">CNN</text>
+  <rect x="650" y="185" width="80" height="24" rx="4" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
+  <text x="690" y="201" font-family="monospace" font-size="9" fill="#10b981" text-anchor="middle">RNN</text>
+  <rect x="650" y="220" width="80" height="24" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/>
+  <text x="690" y="236" font-family="monospace" font-size="9" fill="#f59e0b" text-anchor="middle">Transfer</text>
+
+  <!-- Title -->
+  <text x="400" y="50" text-anchor="middle" font-family="system-ui,sans-serif" font-size="32" font-weight="bold" fill="white">Deep Learning</text>
+  <text x="400" y="75" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#94a3b8">CNNs, RNNs, and transfer learning</text>
+</svg>

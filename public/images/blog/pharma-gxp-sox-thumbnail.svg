@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+
+  <!-- Compliance shield -->
+  <path d="M400,120 L460,145 L460,220 Q460,270 400,290 Q340,270 340,220 L340,145 Z" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <text x="400" y="195" font-family="monospace" font-size="14" fill="#3b82f6" text-anchor="middle" font-weight="bold">GxP</text>
+  <text x="400" y="215" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">Validated</text>
+
+  <!-- Compliance items on left -->
+  <rect x="100" y="140" width="160" height="30" rx="5" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <text x="180" y="160" font-family="monospace" font-size="10" fill="#10b981" text-anchor="middle">✓ Data Integrity</text>
+  <rect x="100" y="185" width="160" height="30" rx="5" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <text x="180" y="205" font-family="monospace" font-size="10" fill="#10b981" text-anchor="middle">✓ Audit Trail</text>
+  <rect x="100" y="230" width="160" height="30" rx="5" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <text x="180" y="250" font-family="monospace" font-size="10" fill="#10b981" text-anchor="middle">✓ Access Control</text>
+  <rect x="100" y="275" width="160" height="30" rx="5" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <text x="180" y="295" font-family="monospace" font-size="10" fill="#10b981" text-anchor="middle">✓ Validation (IQ/OQ/PQ)</text>
+
+  <!-- SOX items on right -->
+  <rect x="540" y="140" width="160" height="30" rx="5" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="620" y="160" font-family="monospace" font-size="10" fill="#f59e0b" text-anchor="middle">SOX Section 302</text>
+  <rect x="540" y="185" width="160" height="30" rx="5" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="620" y="205" font-family="monospace" font-size="10" fill="#f59e0b" text-anchor="middle">SOX Section 404</text>
+  <rect x="540" y="230" width="160" height="30" rx="5" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="620" y="250" font-family="monospace" font-size="10" fill="#f59e0b" text-anchor="middle">Internal Controls</text>
+  <rect x="540" y="275" width="160" height="30" rx="5" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="620" y="295" font-family="monospace" font-size="10" fill="#f59e0b" text-anchor="middle">Financial Reporting</text>
+
+  <!-- Connecting lines -->
+  <line x1="265" y1="200" x2="335" y2="200" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="465" y1="200" x2="535" y2="200" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Title -->
+  <text x="400" y="50" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="bold" fill="white">Pharma GxP &amp; SOX Compliance</text>
+  <text x="400" y="75" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#94a3b8">Regulated environments and data governance</text>
+</svg>

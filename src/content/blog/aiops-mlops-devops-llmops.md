@@ -5,6 +5,7 @@ description: "A clear comparison of AIOps, MLOps, DevOps, and LLMOps — what ea
 date: 2026-05-31
 tags: ["DevOps", "AI"]
 secondaryTags: ["MLOps", "AIOps", "LLMOps", "CI/CD"]
+thumbnail: "/images/blog/aiops-mlops-devops-llmops-thumbnail.svg"
 lang: en
 ---
 

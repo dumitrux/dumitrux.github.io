@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+
+  <!-- Transformer architecture simplified -->
+  <rect x="300" y="130" width="200" height="180" rx="8" fill="#1e293b" stroke="#a855f7" stroke-width="2"/>
+  <text x="400" y="155" font-family="monospace" font-size="12" fill="#a855f7" text-anchor="middle" font-weight="bold">Transformer</text>
+
+  <!-- Attention blocks -->
+  <rect x="325" y="170" width="150" height="25" rx="4" fill="#3b82f6" opacity="0.15" stroke="#3b82f6" stroke-width="1"/>
+  <text x="400" y="187" font-family="monospace" font-size="9" fill="#3b82f6" text-anchor="middle">Self-Attention</text>
+  <rect x="325" y="205" width="150" height="25" rx="4" fill="#10b981" opacity="0.15" stroke="#10b981" stroke-width="1"/>
+  <text x="400" y="222" font-family="monospace" font-size="9" fill="#10b981" text-anchor="middle">Feed Forward</text>
+  <rect x="325" y="240" width="150" height="25" rx="4" fill="#f59e0b" opacity="0.15" stroke="#f59e0b" stroke-width="1"/>
+  <text x="400" y="257" font-family="monospace" font-size="9" fill="#f59e0b" text-anchor="middle">Layer Norm</text>
+  <rect x="325" y="275" width="150" height="25" rx="4" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="1"/>
+  <text x="400" y="292" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="middle">Output Probabilities</text>
+
+  <!-- Input tokens -->
+  <text x="160" y="220" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">Tokens →</text>
+  <rect x="110" y="230" width="40" height="20" rx="3" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+  <rect x="155" y="230" width="40" height="20" rx="3" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+  <rect x="200" y="230" width="40" height="20" rx="3" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+
+  <!-- RAG on side -->
+  <rect x="570" y="140" width="140" height="50" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <text x="640" y="160" font-family="monospace" font-size="10" fill="#10b981" text-anchor="middle">RAG</text>
+  <text x="640" y="178" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle">Retrieval-Augmented</text>
+
+  <rect x="570" y="210" width="140" height="50" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="640" y="230" font-family="monospace" font-size="10" fill="#f59e0b" text-anchor="middle">Fine-Tuning</text>
+  <text x="640" y="248" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle">Domain adaptation</text>
+
+  <rect x="570" y="280" width="140" height="50" rx="6" fill="#1e293b" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="640" y="300" font-family="monospace" font-size="10" fill="#a855f7" text-anchor="middle">Prompting</text>
+  <text x="640" y="318" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle">Zero/few-shot</text>
+
+  <!-- Connection -->
+  <path d="M505,220 L565,165" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+  <path d="M505,235 L565,235" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+  <path d="M505,250 L565,305" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Title -->
+  <text x="400" y="50" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="bold" fill="white">Large Language Models</text>
+  <text x="400" y="75" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#94a3b8">Transformers, RAG, and fine-tuning</text>
+</svg>

@@ -5,6 +5,7 @@ description: "Conceptos clave de data literacy que todo profesional de datos deb
 date: 2026-05-31
 tags: ["Data"]
 secondaryTags: ["Data Literacy", "BI", "Modelado de Datos"]
+thumbnail: "/images/blog/data-literacy-thumbnail.svg"
 lang: es
 ---
 

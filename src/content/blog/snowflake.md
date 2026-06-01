@@ -5,6 +5,7 @@ description: "An overview of Snowflake — its architecture, Snowpipe, Snowpark,
 date: 2026-05-31
 tags: ["Data", "Infrastructure"]
 secondaryTags: ["Snowflake", "Cloud", "Data Warehouse"]
+thumbnail: "/images/blog/snowflake-thumbnail.svg"
 lang: en
 ---
 

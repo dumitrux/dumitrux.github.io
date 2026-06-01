@@ -3,8 +3,9 @@ permalink: aiops-mlops-devops-llmops
 title: "AIOps vs MLOps vs DevOps vs LLMOps"
 description: "Una comparación clara de AIOps, MLOps, DevOps y LLMOps — qué hace cada uno y cómo se relacionan entre sí."
 date: 2026-05-31
-tags: ["DevOps", "IA"]
+tags: ["DevOps", "AI"]
 secondaryTags: ["MLOps", "AIOps", "LLMOps", "CI/CD"]
+thumbnail: "/images/blog/aiops-mlops-devops-llmops-thumbnail.svg"
 lang: es
 ---
 

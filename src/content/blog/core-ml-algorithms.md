@@ -5,6 +5,7 @@ description: "Understand the math and logic behind regression, classification, e
 date: 2026-05-31
 tags: ["AI", "Data"]
 secondaryTags: ["Machine Learning", "Algorithms", "Python"]
+thumbnail: "/images/blog/core-ml-algorithms-thumbnail.svg"
 lang: en
 ---
 

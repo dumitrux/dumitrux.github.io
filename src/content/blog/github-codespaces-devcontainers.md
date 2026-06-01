@@ -139,6 +139,26 @@ You can run scripts at different stages:
 }
 ```
 
+## Security: Dependency Isolation
+
+One underrated benefit of Dev Containers is **supply chain security**. When you run `npm install` or `pnpm install` on your host machine, packages can execute lifecycle scripts (`preinstall`, `postinstall`) that run arbitrary code with full access to your filesystem, SSH keys, cloud credentials, and browser data.
+
+Inside a Dev Container, these scripts run **sandboxed** — they can only access the container's environment. Even if a compromised package runs a malicious postinstall script, it can't reach your host machine's sensitive files.
+
+For extra protection, add an `.npmrc` file to your project to disable lifecycle scripts by default:
+
+```ini
+ignore-scripts=true
+```
+
+This prevents any package from running scripts during install. When you actually need them (e.g., native module compilation), override it explicitly:
+
+```bash
+pnpm install --ignore-scripts=false
+```
+
+Combining Dev Containers with `ignore-scripts=true` gives you **two layers of defense** against supply chain attacks.
+
 ## My Take
 
 Dev Containers changed how I onboard to projects. Instead of a wiki page with 20 steps, I point people to the `devcontainer.json` and say "open in Codespaces." Five minutes later, they're writing code.

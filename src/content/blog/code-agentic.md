@@ -5,7 +5,7 @@ description: ""
 date: 2026-05-07
 tags: ["DevOps", "Software"]
 secondaryTags: ["Git", "CI/CD", "Version Control"]
-# thumbnail: "/images/blog/git-flows-thumbnail.svg"
+thumbnail: "/images/blog/code-agentic-thumbnail.svg"
 lang: en
 ---
 

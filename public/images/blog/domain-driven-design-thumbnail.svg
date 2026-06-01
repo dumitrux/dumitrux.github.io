@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+
+  <!-- Bounded Contexts -->
+  <rect x="100" y="120" width="200" height="180" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="200" y="145" font-family="monospace" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold">Order Context</text>
+  <rect x="125" y="160" width="150" height="28" rx="5" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="1"/>
+  <text x="200" y="178" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">Order Entity</text>
+  <rect x="125" y="200" width="150" height="28" rx="5" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="1"/>
+  <text x="200" y="218" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">OrderService</text>
+  <rect x="125" y="240" width="150" height="28" rx="5" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="1"/>
+  <text x="200" y="258" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">OrderRepository</text>
+
+  <rect x="350" y="120" width="200" height="180" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="450" y="145" font-family="monospace" font-size="11" fill="#10b981" text-anchor="middle" font-weight="bold">Payment Context</text>
+  <rect x="375" y="160" width="150" height="28" rx="5" fill="#10b981" opacity="0.1" stroke="#10b981" stroke-width="1"/>
+  <text x="450" y="178" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">Payment Entity</text>
+  <rect x="375" y="200" width="150" height="28" rx="5" fill="#10b981" opacity="0.1" stroke="#10b981" stroke-width="1"/>
+  <text x="450" y="218" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">PaymentService</text>
+  <rect x="375" y="240" width="150" height="28" rx="5" fill="#10b981" opacity="0.1" stroke="#10b981" stroke-width="1"/>
+  <text x="450" y="258" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">PaymentGateway</text>
+
+  <rect x="600" y="120" width="140" height="180" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="670" y="145" font-family="monospace" font-size="11" fill="#f59e0b" text-anchor="middle" font-weight="bold">Shipping</text>
+  <rect x="620" y="160" width="100" height="28" rx="5" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="1"/>
+  <text x="670" y="178" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">Shipment</text>
+  <rect x="620" y="200" width="100" height="28" rx="5" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="1"/>
+  <text x="670" y="218" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">Tracker</text>
+
+  <!-- Event arrows between contexts -->
+  <path d="M305,210 L345,210" stroke="#a855f7" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M555,210 L595,210" stroke="#a855f7" stroke-width="2" marker-end="url(#arrow)"/>
+  <defs><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#a855f7"/></marker></defs>
+  <text x="325" y="200" font-family="monospace" font-size="8" fill="#a855f7" text-anchor="middle">Event</text>
+  <text x="575" y="200" font-family="monospace" font-size="8" fill="#a855f7" text-anchor="middle">Event</text>
+
+  <!-- Title -->
+  <text x="400" y="50" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="bold" fill="white">Domain Driven Design</text>
+  <text x="400" y="75" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#94a3b8">Bounded contexts, entities, and aggregates</text>
+</svg>

@@ -3,8 +3,9 @@ permalink: denodo
 title: "Denodo: Plataforma de Virtualización de Datos"
 description: "Una visión general de Denodo — la plataforma de virtualización de datos que proporciona una vista unificada de datos sin moverlos."
 date: 2026-05-31
-tags: ["Data", "Infraestructura"]
+tags: ["Data", "Infrastructure"]
 secondaryTags: ["Denodo", "Virtualización de Datos", "Integración de Datos"]
+thumbnail: "/images/blog/denodo-thumbnail.svg"
 lang: es
 ---
 

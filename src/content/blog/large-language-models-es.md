@@ -3,8 +3,9 @@ permalink: large-language-models
 title: "Modelos de Lenguaje: Transformers, RAG y Fine-Tuning"
 description: "Cómo funcionan los transformers, patrones prácticos como RAG y fine-tuning, y cómo usar bases de datos vectoriales para aplicaciones LLM."
 date: 2026-05-31
-tags: ["IA", "Software"]
+tags: ["AI", "Software"]
 secondaryTags: ["LLM", "Transformers", "RAG", "Bases de Datos Vectoriales"]
+thumbnail: "/images/blog/large-language-models-thumbnail.svg"
 lang: es
 ---
 

@@ -5,6 +5,7 @@ description: "A clear comparison of databases, data warehouses, data lakes, and 
 date: 2026-05-31
 tags: ["Data", "Infrastructure"]
 secondaryTags: ["Data Warehouse", "Data Lake", "Data Lakehouse"]
+thumbnail: "/images/blog/database-warehouse-lakehouse-thumbnail.svg"
 lang: en
 ---
 

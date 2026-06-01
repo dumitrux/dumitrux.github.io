@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+
+  <!-- Three pillars -->
+  <!-- Metrics -->
+  <rect x="120" y="130" width="160" height="190" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <text x="200" y="155" font-family="monospace" font-size="12" fill="#3b82f6" text-anchor="middle" font-weight="bold">Metrics</text>
+  <!-- Mini chart -->
+  <polyline points="145,220 170,200 195,210 220,185 245,195" fill="none" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="145" cy="220" r="3" fill="#3b82f6"/>
+  <circle cx="170" cy="200" r="3" fill="#3b82f6"/>
+  <circle cx="195" cy="210" r="3" fill="#3b82f6"/>
+  <circle cx="220" cy="185" r="3" fill="#3b82f6"/>
+  <circle cx="245" cy="195" r="3" fill="#3b82f6"/>
+  <text x="200" y="260" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">CPU: 45%</text>
+  <text x="200" y="275" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">Mem: 2.1GB</text>
+  <text x="200" y="290" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">p99: 120ms</text>
+
+  <!-- Logs -->
+  <rect x="320" y="130" width="160" height="190" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+  <text x="400" y="155" font-family="monospace" font-size="12" fill="#10b981" text-anchor="middle" font-weight="bold">Logs</text>
+  <text x="340" y="185" font-family="monospace" font-size="8" fill="#10b981" opacity="0.7">INFO  request /api</text>
+  <text x="340" y="200" font-family="monospace" font-size="8" fill="#f59e0b" opacity="0.7">WARN  slow query</text>
+  <text x="340" y="215" font-family="monospace" font-size="8" fill="#10b981" opacity="0.7">INFO  200 OK 45ms</text>
+  <text x="340" y="230" font-family="monospace" font-size="8" fill="#ef4444" opacity="0.7">ERROR timeout</text>
+  <text x="340" y="245" font-family="monospace" font-size="8" fill="#10b981" opacity="0.7">INFO  retry ok</text>
+  <text x="340" y="260" font-family="monospace" font-size="8" fill="#10b981" opacity="0.7">INFO  200 OK 32ms</text>
+  <text x="340" y="275" font-family="monospace" font-size="8" fill="#f59e0b" opacity="0.7">WARN  high load</text>
+
+  <!-- Traces -->
+  <rect x="520" y="130" width="180" height="190" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="610" y="155" font-family="monospace" font-size="12" fill="#f59e0b" text-anchor="middle" font-weight="bold">Traces</text>
+  <rect x="545" y="175" width="130" height="12" rx="2" fill="#3b82f6" opacity="0.3"/>
+  <rect x="545" y="195" width="90" height="12" rx="2" fill="#10b981" opacity="0.3"/>
+  <rect x="560" y="215" width="60" height="12" rx="2" fill="#f59e0b" opacity="0.3"/>
+  <rect x="560" y="235" width="100" height="12" rx="2" fill="#a855f7" opacity="0.3"/>
+  <rect x="575" y="255" width="40" height="12" rx="2" fill="#ef4444" opacity="0.3"/>
+  <text x="610" y="290" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">Span waterfall</text>
+
+  <!-- Title -->
+  <text x="400" y="50" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="bold" fill="white">Monitoring &amp; Observability</text>
+  <text x="400" y="75" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#94a3b8">Metrics, logs, and distributed traces</text>
+</svg>

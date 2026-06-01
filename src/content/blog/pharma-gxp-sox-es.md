@@ -5,6 +5,7 @@ description: "Una visión general de las regulaciones GxP en farmacéutica y el 
 date: 2026-05-31
 tags: ["Data", "Compliance"]
 secondaryTags: ["GxP", "SOX", "Pharma", "Regulatorio"]
+thumbnail: "/images/blog/pharma-gxp-sox-thumbnail.svg"
 lang: es
 ---
 

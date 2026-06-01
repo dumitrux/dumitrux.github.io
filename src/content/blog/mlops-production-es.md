@@ -3,8 +3,9 @@ permalink: mlops-production
 title: "MLOps: Llevando Modelos a Producción"
 description: "Cómo desplegar y mantener modelos ML en producción usando Docker, Kubernetes, CI/CD y tracking de experimentos. El lado operacional es el trabajo real."
 date: 2026-05-31
-tags: ["IA", "DevOps"]
+tags: ["AI", "DevOps"]
 secondaryTags: ["MLOps", "Docker", "Kubernetes", "CI/CD"]
+thumbnail: "/images/blog/mlops-production-thumbnail.svg"
 lang: es
 ---
 

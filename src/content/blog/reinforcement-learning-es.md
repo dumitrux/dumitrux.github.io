@@ -3,8 +3,9 @@ permalink: reinforcement-learning
 title: "Aprendizaje por Refuerzo: Aprender por Recompensa"
 description: "Entiende los métodos de aprendizaje basados en recompensa, Q-tables y procesos de decisión de Markov."
 date: 2026-05-31
-tags: ["IA", "Data"]
+tags: ["AI", "Data"]
 secondaryTags: ["Aprendizaje por Refuerzo", "Q-Learning", "MDP"]
+thumbnail: "/images/blog/reinforcement-learning-thumbnail.svg"
 lang: es
 ---
 

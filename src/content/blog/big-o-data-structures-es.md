@@ -3,8 +3,9 @@ permalink: big-o-data-structures
 title: "Notación Big O, Estructuras de Datos y Concurrencia"
 description: "Una guía práctica de notación Big O, estructuras de datos comunes y conceptos básicos de concurrencia para ingenieros de software."
 date: 2026-05-31
-tags: ["Software", "Ciencias de la Computación"]
+tags: ["Software", "Computer Science"]
 secondaryTags: ["Algoritmos", "Estructuras de Datos", "Concurrencia"]
+thumbnail: "/images/blog/big-o-data-structures-thumbnail.svg"
 lang: es
 ---
 

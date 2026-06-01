@@ -5,6 +5,7 @@ description: "Key concepts of distributed systems, how data is processed across 
 date: 2026-05-31
 tags: ["Data", "Infrastructure"]
 secondaryTags: ["Distributed Systems", "MapReduce", "Scalability"]
+thumbnail: "/images/blog/distributed-processing-thumbnail.svg"
 lang: en
 ---
 

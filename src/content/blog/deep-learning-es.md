@@ -3,8 +3,9 @@ permalink: deep-learning
 title: "Deep Learning: CNNs, RNNs y Transfer Learning"
 description: "Cómo construir redes neuronales con PyTorch, entender backpropagation y usar transfer learning para resultados prácticos."
 date: 2026-05-31
-tags: ["IA", "Data"]
+tags: ["AI", "Data"]
 secondaryTags: ["Deep Learning", "PyTorch", "Redes Neuronales"]
+thumbnail: "/images/blog/deep-learning-thumbnail.svg"
 lang: es
 ---
 

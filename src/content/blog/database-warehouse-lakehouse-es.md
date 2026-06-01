@@ -3,8 +3,9 @@ permalink: database-warehouse-lakehouse
 title: "Base de Datos vs Data Warehouse vs Data Lakehouse"
 description: "Una comparación clara de bases de datos, data warehouses, data lakes y data lakehouses — cuándo usar cada uno."
 date: 2026-05-31
-tags: ["Data", "Infraestructura"]
+tags: ["Data", "Infrastructure"]
 secondaryTags: ["Data Warehouse", "Data Lake", "Data Lakehouse"]
+thumbnail: "/images/blog/database-warehouse-lakehouse-thumbnail.svg"
 lang: es
 ---
 

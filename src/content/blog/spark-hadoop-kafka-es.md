@@ -3,8 +3,9 @@ permalink: spark-hadoop-kafka
 title: "Spark vs Hadoop vs Kafka"
 description: "Una comparación práctica de Apache Spark, Hadoop y Kafka — qué hace cada uno y cuándo usarlo."
 date: 2026-05-31
-tags: ["Data", "Infraestructura"]
+tags: ["Data", "Infrastructure"]
 secondaryTags: ["Spark", "Hadoop", "Kafka", "Big Data"]
+thumbnail: "/images/blog/spark-hadoop-kafka-thumbnail.svg"
 lang: es
 ---
 

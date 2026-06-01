@@ -5,6 +5,7 @@ description: "Normalized vs denormalized schemas, relational modeling, and when 
 date: 2026-05-31
 tags: ["Data", "Software"]
 secondaryTags: ["Database", "Data Modeling", "SQL", "Normalization"]
+thumbnail: "/images/blog/database-design-data-modeling-thumbnail.svg"
 lang: en
 ---
 

@@ -5,6 +5,7 @@ description: "Understand reward-based learning methods, Q-tables, and Markov dec
 date: 2026-05-31
 tags: ["AI", "Data"]
 secondaryTags: ["Reinforcement Learning", "Q-Learning", "MDP"]
+thumbnail: "/images/blog/reinforcement-learning-thumbnail.svg"
 lang: en
 ---
 

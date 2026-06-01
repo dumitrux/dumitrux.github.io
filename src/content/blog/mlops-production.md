@@ -5,6 +5,7 @@ description: "How to deploy and maintain ML models in production using Docker, K
 date: 2026-05-31
 tags: ["AI", "DevOps"]
 secondaryTags: ["MLOps", "Docker", "Kubernetes", "CI/CD"]
+thumbnail: "/images/blog/mlops-production-thumbnail.svg"
 lang: en
 ---
 

@@ -5,6 +5,7 @@ description: "Conceptos básicos de programación, programación orientada a obj
 date: 2026-05-31
 tags: ["Software", "Python"]
 secondaryTags: ["POO", "Arquitectura", "Patrones de Diseño"]
+thumbnail: "/images/blog/programming-fundamentals-thumbnail.svg"
 lang: es
 ---
 

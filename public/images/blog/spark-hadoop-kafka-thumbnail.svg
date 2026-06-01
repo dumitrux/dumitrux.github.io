@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+
+  <!-- Spark -->
+  <rect x="100" y="140" width="170" height="150" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="185" y="170" font-family="monospace" font-size="14" fill="#f59e0b" text-anchor="middle" font-weight="bold">Spark</text>
+  <text x="120" y="195" font-family="monospace" font-size="9" fill="#94a3b8">In-memory</text>
+  <text x="120" y="212" font-family="monospace" font-size="9" fill="#94a3b8">Batch + Stream</text>
+  <text x="120" y="229" font-family="monospace" font-size="9" fill="#94a3b8">SQL, ML, Graph</text>
+  <rect x="120" y="250" width="130" height="8" rx="2" fill="#f59e0b" opacity="0.3"/>
+  <rect x="120" y="263" width="90" height="8" rx="2" fill="#f59e0b" opacity="0.2"/>
+
+  <!-- Hadoop -->
+  <rect x="310" y="140" width="170" height="150" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+  <text x="395" y="170" font-family="monospace" font-size="14" fill="#10b981" text-anchor="middle" font-weight="bold">Hadoop</text>
+  <text x="330" y="195" font-family="monospace" font-size="9" fill="#94a3b8">HDFS storage</text>
+  <text x="330" y="212" font-family="monospace" font-size="9" fill="#94a3b8">MapReduce</text>
+  <text x="330" y="229" font-family="monospace" font-size="9" fill="#94a3b8">YARN scheduler</text>
+  <rect x="330" y="250" width="130" height="8" rx="2" fill="#10b981" opacity="0.3"/>
+  <rect x="330" y="263" width="110" height="8" rx="2" fill="#10b981" opacity="0.2"/>
+
+  <!-- Kafka -->
+  <rect x="520" y="140" width="170" height="150" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <text x="605" y="170" font-family="monospace" font-size="14" fill="#3b82f6" text-anchor="middle" font-weight="bold">Kafka</text>
+  <text x="540" y="195" font-family="monospace" font-size="9" fill="#94a3b8">Event streaming</text>
+  <text x="540" y="212" font-family="monospace" font-size="9" fill="#94a3b8">Pub/Sub topics</text>
+  <text x="540" y="229" font-family="monospace" font-size="9" fill="#94a3b8">Real-time</text>
+
+  <!-- Kafka partitions -->
+  <rect x="540" y="245" width="40" height="15" rx="2" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="0.5"/>
+  <rect x="585" y="245" width="40" height="15" rx="2" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="0.5"/>
+  <rect x="630" y="245" width="40" height="15" rx="2" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="0.5"/>
+  <text x="605" y="276" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle">partitions</text>
+
+  <!-- Comparison arrows -->
+  <text x="285" y="220" font-family="system-ui,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">vs</text>
+  <text x="495" y="220" font-family="system-ui,sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">vs</text>
+
+  <!-- Use case bar -->
+  <rect x="100" y="310" width="590" height="30" rx="5" fill="#a855f7" opacity="0.08" stroke="#a855f7" stroke-width="1"/>
+  <text x="395" y="330" font-family="monospace" font-size="10" fill="#a855f7" text-anchor="middle">Batch Processing · Distributed Storage · Stream Processing</text>
+
+  <!-- Title -->
+  <text x="400" y="50" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="bold" fill="white">Spark vs Hadoop vs Kafka</text>
+  <text x="400" y="75" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#94a3b8">Big data processing frameworks compared</text>
+</svg>

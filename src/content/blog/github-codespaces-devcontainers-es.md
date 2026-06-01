@@ -139,6 +139,26 @@ Puedes ejecutar scripts en diferentes etapas:
 }
 ```
 
+## Seguridad: Aislamiento de Dependencias
+
+Un beneficio subestimado de los Dev Containers es la **seguridad en la cadena de suministro**. Cuando ejecutas `npm install` o `pnpm install` en tu máquina, los paquetes pueden ejecutar scripts de ciclo de vida (`preinstall`, `postinstall`) que corren código arbitrario con acceso total a tu sistema de archivos, claves SSH, credenciales de la nube y datos del navegador.
+
+Dentro de un Dev Container, estos scripts se ejecutan de forma **aislada** — solo pueden acceder al entorno del contenedor. Incluso si un paquete comprometido ejecuta un script postinstall malicioso, no puede alcanzar los archivos sensibles de tu máquina.
+
+Para protección adicional, añade un archivo `.npmrc` a tu proyecto para deshabilitar los scripts de ciclo de vida por defecto:
+
+```ini
+ignore-scripts=true
+```
+
+Esto evita que cualquier paquete ejecute scripts durante la instalación. Cuando realmente los necesites (por ejemplo, compilación de módulos nativos), puedes sobreescribirlo explícitamente:
+
+```bash
+pnpm install --ignore-scripts=false
+```
+
+Combinar Dev Containers con `ignore-scripts=true` te da **dos capas de defensa** contra ataques a la cadena de suministro.
+
 ## Mi Opinión
 
 Los Dev Containers cambiaron cómo hago onboarding en proyectos. En lugar de una página wiki con 20 pasos, apunto a la gente al `devcontainer.json` y digo "ábrelo en Codespaces." Cinco minutos después, están escribiendo código.

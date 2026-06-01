@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+
+  <!-- Git Hook -->
+  <rect x="100" y="140" width="150" height="50" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <text x="175" y="170" font-family="monospace" font-size="11" fill="#3b82f6" text-anchor="middle">Git Hook</text>
+  <text x="175" y="205" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">pre-commit</text>
+
+  <!-- Webhook -->
+  <rect x="320" y="140" width="150" height="50" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+  <text x="395" y="170" font-family="monospace" font-size="11" fill="#10b981" text-anchor="middle">Webhook</text>
+  <text x="395" y="205" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">HTTP callback</text>
+
+  <!-- Pipeline Hook -->
+  <rect x="540" y="140" width="150" height="50" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="615" y="170" font-family="monospace" font-size="11" fill="#f59e0b" text-anchor="middle">Pipeline Hook</text>
+  <text x="615" y="205" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">CI/CD trigger</text>
+
+  <!-- Flow arrows -->
+  <path d="M175,190 L175,240" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowb)"/>
+  <path d="M395,190 L395,240" stroke="#10b981" stroke-width="2" marker-end="url(#arrowg)"/>
+  <path d="M615,190 L615,240" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrowy)"/>
+  <defs>
+    <marker id="arrowb" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#3b82f6"/></marker>
+    <marker id="arrowg" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#10b981"/></marker>
+    <marker id="arrowy" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#f59e0b"/></marker>
+  </defs>
+
+  <!-- Actions -->
+  <rect x="115" y="245" width="120" height="30" rx="5" fill="#3b82f6" opacity="0.15" stroke="#3b82f6" stroke-width="1"/>
+  <text x="175" y="264" font-family="monospace" font-size="9" fill="#3b82f6" text-anchor="middle">lint + format</text>
+
+  <rect x="335" y="245" width="120" height="30" rx="5" fill="#10b981" opacity="0.15" stroke="#10b981" stroke-width="1"/>
+  <text x="395" y="264" font-family="monospace" font-size="9" fill="#10b981" text-anchor="middle">POST /api/hook</text>
+
+  <rect x="555" y="245" width="120" height="30" rx="5" fill="#f59e0b" opacity="0.15" stroke="#f59e0b" stroke-width="1"/>
+  <text x="615" y="264" font-family="monospace" font-size="9" fill="#f59e0b" text-anchor="middle">build + deploy</text>
+
+  <!-- Connecting pipeline -->
+  <path d="M250,260 L330,260" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+  <path d="M460,260 L550,260" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Event label -->
+  <text x="400" y="320" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">event → action → reaction</text>
+
+  <!-- Title -->
+  <text x="400" y="50" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="bold" fill="white">Hooks, Webhooks &amp; Pipelines</text>
+  <text x="400" y="75" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#94a3b8">Event-driven automation patterns</text>
+</svg>

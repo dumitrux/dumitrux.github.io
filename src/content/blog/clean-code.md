@@ -5,6 +5,7 @@ description: "The most important clean code principles for writing readable, mai
 date: 2026-05-31
 tags: ["Software"]
 secondaryTags: ["Clean Code", "Best Practices", "Refactoring"]
+thumbnail: "/images/blog/clean-code-thumbnail.svg"
 lang: en
 ---
 

@@ -3,8 +3,9 @@ permalink: domain-driven-design
 title: "Domain Driven Design (DDD)"
 description: "Una visión general de Domain Driven Design — bounded contexts, aggregates, entities, value objects y cómo organizar software complejo alrededor del dominio de negocio."
 date: 2026-05-31
-tags: ["Ingeniería de Software"]
+tags: ["Software Engineering"]
 secondaryTags: ["DDD", "Arquitectura", "Patrones de Diseño"]
+thumbnail: "/images/blog/domain-driven-design-thumbnail.svg"
 lang: es
 ---
 

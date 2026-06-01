@@ -3,8 +3,9 @@ permalink: core-ml-algorithms
 title: "Algoritmos Fundamentales de Machine Learning"
 description: "Entiende las matemáticas y la lógica detrás de regresión, clasificación, métodos ensemble, clustering y SVMs."
 date: 2026-05-31
-tags: ["IA", "Data"]
+tags: ["AI", "Data"]
 secondaryTags: ["Machine Learning", "Algoritmos", "Python"]
+thumbnail: "/images/blog/core-ml-algorithms-thumbnail.svg"
 lang: es
 ---
 

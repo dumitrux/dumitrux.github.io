@@ -3,8 +3,9 @@ permalink: distributed-processing
 title: "Procesamiento Distribuido"
 description: "Conceptos clave de sistemas distribuidos, cómo se procesan datos en múltiples máquinas y patrones comunes."
 date: 2026-05-31
-tags: ["Data", "Infraestructura"]
+tags: ["Data", "Infrastructure"]
 secondaryTags: ["Sistemas Distribuidos", "MapReduce", "Escalabilidad"]
+thumbnail: "/images/blog/distributed-processing-thumbnail.svg"
 lang: es
 ---
 
