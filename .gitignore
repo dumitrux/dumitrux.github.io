@@ -30,3 +30,6 @@ yarn-error.log*
 # macOS
 .DS_Store
 Thumbs.db
+
+# local-only files (personal scratch, notes, drafts — never committed)
+.local/

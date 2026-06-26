@@ -1,5 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/ui';
+import { social } from '../data/site';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -16,7 +17,7 @@ const t = useTranslations(lang);
       </p>
       <div class="flex gap-4 mt-6">
         <a
-          href="https://github.com/dumitrux"
+          href={social.github}
           target="_blank"
           rel="noopener noreferrer"
           class="flex items-center gap-2 px-4 py-2 text-gray-800 dark:text-dark-muted hover:text-white hover:bg-primary border border-gray-200 dark:border-dark-border rounded-lg hover:border-primary transition-all duration-200"
@@ -26,7 +27,7 @@ const t = useTranslations(lang);
           <span class="text-sm">GitHub</span>
         </a>
         <a
-          href="https://www.linkedin.com/in/dumitrux"
+          href={social.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           class="flex items-center gap-2 px-4 py-2 text-gray-800 dark:text-dark-muted hover:text-white hover:bg-primary border border-gray-200 dark:border-dark-border rounded-lg hover:border-primary transition-all duration-200"

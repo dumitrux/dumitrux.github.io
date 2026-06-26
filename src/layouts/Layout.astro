@@ -1,8 +1,9 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { getLangFromUrl } from '../i18n/ui';
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
+import { social, siteMeta } from '../data/site';
 
 interface Props {
   title: string;
@@ -15,12 +16,22 @@ interface Props {
 
 const { title, description, image, canonical, alternateEn, alternateEs } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const site = Astro.site?.origin ?? 'https://dumitrux.github.io';
 const defaultDescription = 'Dumitru - Data Platform Specialist, Cloud Engineer, DevOps & Data Engineer portfolio';
 const metaDescription = description || defaultDescription;
 const canonicalURL = canonical || new URL(Astro.url.pathname, site).href;
-const ogImage = image ? new URL(image, site).href : undefined;
+const ogImage = new URL(image ?? siteMeta.defaultOgImage, site).href;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: siteMeta.name,
+  url: site,
+  jobTitle: 'Data Platform Specialist, Cloud Engineer, DevOps & Data Engineer',
+  sameAs: [social.github, social.linkedin],
+};
 ---
 
 <!doctype html>
@@ -48,7 +59,8 @@ const ogImage = image ? new URL(image, site).href : undefined;
     <meta name="twitter:description" content={metaDescription} />
     {ogImage && <meta name="twitter:image" content={ogImage} />}
     <title>{title}</title>
-    <ViewTransitions />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
+    <ClientRouter />
     <script is:inline>
       const theme = localStorage.getItem('theme');
       if (theme === 'light') {
@@ -67,8 +79,9 @@ const ogImage = image ? new URL(image, site).href : undefined;
     </script>
   </head>
   <body class="bg-gray-100 dark:bg-dark-bg text-gray-900 dark:text-dark-text min-h-screen font-sans antialiased transition-colors duration-300">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-white">{t('a11y.skip')}</a>
     <Header />
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <main id="main-content" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <slot />
     </main>
     <Footer />

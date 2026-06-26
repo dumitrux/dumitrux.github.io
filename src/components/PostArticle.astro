@@ -1,0 +1,77 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+import { useTranslations } from '../i18n/ui';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  lang: 'en' | 'es';
+}
+
+const { post, lang } = Astro.props;
+const t = useTranslations(lang);
+const { Content } = await render(post);
+const dateLocale = lang === 'es' ? 'es-ES' : 'en-GB';
+---
+
+<article class="pt-8 pb-16 max-w-3xl mx-auto">
+  <button
+    id="back-btn"
+    type="button"
+    class="text-primary text-sm hover:underline mb-6 inline-block cursor-pointer"
+    >&larr; {t('post.back')}</button
+  >
+
+  {
+    post.data.thumbnail && (
+      <img
+        src={post.data.thumbnail}
+        alt={post.data.title}
+        class="w-full h-64 object-cover rounded-xl mb-8"
+      />
+    )
+  }
+
+  <p class="text-xs text-gray-500 dark:text-dark-muted mb-3">
+    {post.data.date.toLocaleDateString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric' })}
+  </p>
+
+  <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">{post.data.title}</h1>
+  <p class="text-gray-800 dark:text-dark-muted mb-6">{post.data.description}</p>
+
+  {
+    (post.data.tags || post.data.secondaryTags) && (
+      <div class="mb-8">
+        {post.data.tags && (
+          <div class="flex flex-wrap gap-2 mb-2">
+            {post.data.tags.map((tag) => (
+              <span class="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+        {post.data.secondaryTags && (
+          <div class="flex flex-wrap gap-2">
+            {post.data.secondaryTags.map((tag) => (
+              <span class="px-2 py-1 text-xs rounded-md bg-gray-200 dark:bg-dark-card text-gray-600 dark:text-dark-muted border border-gray-200 dark:border-dark-border">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    )
+  }
+
+  <div class="prose dark:prose-invert prose-a:text-primary max-w-none">
+    <Content />
+  </div>
+</article>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    const btn = document.getElementById('back-btn');
+    if (btn) btn.addEventListener('click', () => history.back());
+  });
+</script>

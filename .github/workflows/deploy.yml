@@ -23,7 +23,6 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
           run_install: false
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -32,6 +31,8 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Type check
+        run: pnpm run check
       - name: Build
         run: pnpm run build
       - name: Upload artifact

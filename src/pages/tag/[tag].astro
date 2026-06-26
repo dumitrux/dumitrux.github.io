@@ -1,8 +1,8 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Layout from '../../layouts/Layout.astro';
+import TagPage from '../../components/TagPage.astro';
 import { getCollection } from 'astro:content';
-import { getLangFromUrl, useTranslations } from '../../i18n/ui';
 
 export const getStaticPaths = (async () => {
   const posts = (await getCollection('blog')).filter((post) => post.data.lang === 'en');
@@ -15,13 +15,11 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { tag } = Astro.props;
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 
 const allPosts = (await getCollection('blog')).filter((post) => post.data.lang === 'en');
 const mainTagOrder = ['DevOps', 'Data', 'AI/ML', 'AI', 'Infrastructure', 'Software', 'Software Engineering', 'Python', 'Computer Science', 'Architecture', 'Compliance', 'Personal', 'Projects'];
 const usedTags = new Set(allPosts.flatMap((post) => post.data.tags ?? []));
-const allTags = mainTagOrder.filter((tag) => usedTags.has(tag));
+const allTags = mainTagOrder.filter((name) => usedTags.has(name));
 
 const posts = allPosts
   .filter((post) => post.data.tags?.includes(tag))
@@ -30,75 +28,15 @@ const posts = allPosts
     if (!a.data.pinned && b.data.pinned) return 1;
     return b.data.date.valueOf() - a.data.date.valueOf();
   });
+
+const slug = tag.toLowerCase().replace(/[\s/]+/g, '-');
 ---
 
 <Layout
   title={`${tag} | Blog | Dumitru`}
   description={`Blog posts tagged with ${tag}.`}
-  alternateEn={`https://dumitrux.github.io/tag/${tag.toLowerCase().replace(/[\s/]+/g, '-')}/`}
-  alternateEs={`https://dumitrux.github.io/es/tag/${tag.toLowerCase().replace(/[\s/]+/g, '-')}/`}
+  alternateEn={`https://dumitrux.github.io/tag/${slug}/`}
+  alternateEs={`https://dumitrux.github.io/es/tag/${slug}/`}
 >
-  <section class="py-8">
-    <!-- Tag filter -->
-    <div class="flex flex-wrap gap-2 mb-8">
-      <a
-        href="/"
-        class="px-3 py-1 text-xs font-semibold rounded-full border-[3px] transition-all duration-200 bg-transparent text-gray-800 dark:text-dark-muted border-gray-400 dark:border-dark-muted hover:border-primary hover:text-primary hover:scale-105"
-      >
-        {t('blog.allTags')}
-      </a>
-      {allTags.map((t) => (
-        <a
-          href={`/tag/${t.toLowerCase().replace(/[\s/]+/g, '-')}/`}
-          class:list={[
-            'px-3 py-1 text-xs rounded-full border transition-all duration-200 hover:scale-105',
-            t === tag
-              ? 'bg-primary text-white border-primary hover:text-white hover:brightness-110'
-              : 'bg-transparent text-gray-800 dark:text-dark-muted border-gray-200 dark:border-dark-border hover:border-primary hover:text-primary'
-          ]}
-        >
-          {t}
-        </a>
-      ))}
-    </div>
-
-    {posts.length > 0 ? (
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {posts.map((post) => (
-          <a
-            href={`/blog/${post.data.permalink}/`}
-            class="group bg-gray-200 dark:bg-dark-card border-2 border-gray-300 dark:border-dark-border rounded-xl overflow-hidden hover:border-primary/50 transition-colors flex flex-col h-full"
-          >
-            {post.data.thumbnail && (
-              <img
-                src={post.data.thumbnail}
-                alt={post.data.title}
-                class="w-full h-48 object-cover"
-                loading="lazy"
-              />
-            )}
-            <div class="p-5 flex flex-col flex-1">
-              <p class="text-xs text-gray-500 dark:text-dark-muted mb-2">
-                {post.data.pinned && <span class="text-primary font-semibold mr-2">📌 Pinned</span>}
-                {post.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
-              </p>
-              <h2 class="text-lg text-gray-900 dark:text-white font-semibold mb-2 group-hover:text-primary transition-colors">{post.data.title}</h2>
-              <p class="text-gray-800 dark:text-dark-muted text-sm leading-relaxed">{post.data.description}</p>
-              {post.data.tags && (
-                <div class="flex flex-wrap gap-2 mt-3">
-                  {post.data.tags.map((tag) => (
-                    <span class="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20">{tag}</span>
-                  ))}
-                </div>
-              )}
-            </div>
-          </a>
-        ))}
-      </div>
-    ) : (
-      <div class="bg-gray-200 dark:bg-dark-card border-2 border-gray-300 dark:border-dark-border rounded-xl p-8 text-center">
-        <p class="text-gray-800 dark:text-dark-muted">{t('blog.noResults')}</p>
-      </div>
-    )}
-  </section>
+  <TagPage tag={tag} posts={posts} allTags={allTags} lang="en" />
 </Layout>

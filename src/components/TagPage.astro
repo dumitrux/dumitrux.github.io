@@ -1,0 +1,97 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { useTranslations } from '../i18n/ui';
+
+interface Props {
+  tag: string;
+  posts: CollectionEntry<'blog'>[];
+  allTags: string[];
+  lang: 'en' | 'es';
+}
+
+const { tag, posts, allTags, lang } = Astro.props;
+const t = useTranslations(lang);
+const prefix = lang === 'es' ? '/es' : '';
+const dateLocale = lang === 'es' ? 'es-ES' : 'en-GB';
+const slugify = (s: string) => s.toLowerCase().replace(/[\s/]+/g, '-');
+---
+
+<section class="py-8">
+  <!-- Tag filter -->
+  <div class="flex flex-wrap gap-2 mb-8">
+    <a
+      href={`${prefix}/`}
+      class="px-3 py-1 text-xs font-semibold rounded-full border-[3px] transition-all duration-200 bg-transparent text-gray-800 dark:text-dark-muted border-gray-400 dark:border-dark-muted hover:border-primary hover:text-primary hover:scale-105"
+    >
+      {t('blog.allTags')}
+    </a>
+    {
+      allTags.map((tagName) => (
+        <a
+          href={`${prefix}/tag/${slugify(tagName)}/`}
+          class:list={[
+            'px-3 py-1 text-xs rounded-full border transition-all duration-200 hover:scale-105',
+            tagName === tag
+              ? 'bg-primary text-white border-primary hover:text-white hover:brightness-110'
+              : 'bg-transparent text-gray-800 dark:text-dark-muted border-gray-200 dark:border-dark-border hover:border-primary hover:text-primary',
+          ]}
+        >
+          {tagName}
+        </a>
+      ))
+    }
+  </div>
+
+  {
+    posts.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {posts.map((post) => (
+          <a
+            href={`${prefix}/blog/${post.data.permalink}/`}
+            class="group bg-gray-200 dark:bg-dark-card border-2 border-gray-300 dark:border-dark-border rounded-xl overflow-hidden hover:border-primary/50 transition-colors flex flex-col h-full"
+          >
+            {post.data.thumbnail && (
+              <img
+                src={post.data.thumbnail}
+                alt={post.data.title}
+                class="w-full h-48 object-cover"
+                loading="lazy"
+              />
+            )}
+            <div class="p-5 flex flex-col flex-1">
+              <p class="text-xs text-gray-500 dark:text-dark-muted mb-2">
+                {post.data.pinned && (
+                  <span class="text-primary font-semibold mr-2">📌 {t('blog.pinned')}</span>
+                )}
+                {post.data.date.toLocaleDateString(dateLocale, {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </p>
+              <h2 class="text-lg text-gray-900 dark:text-white font-semibold mb-2 group-hover:text-primary transition-colors">
+                {post.data.title}
+              </h2>
+              <p class="text-gray-800 dark:text-dark-muted text-sm leading-relaxed">
+                {post.data.description}
+              </p>
+              {post.data.tags && (
+                <div class="flex flex-wrap gap-2 mt-3">
+                  {post.data.tags.map((tg) => (
+                    <span class="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20">
+                      {tg}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <div class="bg-gray-200 dark:bg-dark-card border-2 border-gray-300 dark:border-dark-border rounded-xl p-8 text-center">
+        <p class="text-gray-800 dark:text-dark-muted">{t('blog.noResults')}</p>
+      </div>
+    )
+  }
+</section>

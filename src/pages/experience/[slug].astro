@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ExperienceDetail from '../../components/ExperienceDetail.astro';
 import { workExperience } from '../../data/experience';
 
 export function getStaticPaths() {
@@ -10,36 +11,13 @@ export function getStaticPaths() {
 }
 
 const { exp } = Astro.props;
-const lang = 'en';
 ---
 
 <Layout
   title={`${exp.name} | Dumitru`}
-  description={exp.details[lang]}
+  description={exp.details.en}
   alternateEn={`https://dumitrux.github.io/experience/${exp.slug}/`}
   alternateEs={`https://dumitrux.github.io/es/experience/${exp.slug}/`}
 >
-  <section class="py-8 max-w-3xl mx-auto">
-    <button id="back-btn" type="button" class="text-primary hover:underline text-sm mb-6 inline-flex items-center gap-1 cursor-pointer">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-      Back to Experience
-    </button>
-    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mt-4 mb-2">{exp.name}</h1>
-    <p class="text-sm text-gray-500 dark:text-dark-muted mb-6">{exp.period}</p>
-    <p class="text-gray-800 dark:text-dark-muted leading-relaxed mb-8">{exp.details[lang]}</p>
-    <div class="flex flex-wrap gap-2">
-      {exp.skills.map((skill) => (
-        <span class="px-3 py-1 text-sm rounded-md bg-primary/10 text-primary border border-primary/20">
-          {skill}
-        </span>
-      ))}
-    </div>
-  </section>
+  <ExperienceDetail exp={exp} lang="en" />
 </Layout>
-
-<script is:inline>
-  document.addEventListener('astro:page-load', () => {
-    const btn = document.getElementById('back-btn');
-    if (btn) btn.addEventListener('click', () => history.back());
-  });
-</script>

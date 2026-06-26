@@ -184,6 +184,14 @@ Extract ──→ [pre-transform hook] ──→ Transform ──→ [post-trans
               Check data quality                       Send alert
 ```
 
+## Claude Code Hooks
+
+In Claude Code, you can use hooks to customize the behavior of the agent:
+- `/init` to set up project-specific context and tips
+- `/permissions` to manage what the agent can access
+
+Check post [Foundations of Agentic Software Delivery](./code-agentic.md) for more details on how to use hooks in Claude Code.
+
 ## Comparison
 
 | Hook Type | Trigger | Transport | Direction |
