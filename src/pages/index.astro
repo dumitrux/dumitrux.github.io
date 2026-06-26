@@ -147,13 +147,17 @@ const searchIndex = posts.map((post) => ({
 
 <script is:inline>
   document.addEventListener('astro:page-load', () => {
+    const searchIndexEl = document.getElementById('search-index');
     const searchInput = document.getElementById('blog-search');
-    const tagButtons = document.querySelectorAll('.tag-btn');
-    const cards = Array.from(document.querySelectorAll('.blog-card'));
-    const noResults = document.getElementById('no-results');
     const perPageSelect = document.getElementById('posts-per-page');
     const pagination = document.getElementById('pagination');
-    const index = JSON.parse(document.getElementById('search-index').textContent);
+    const noResults = document.getElementById('no-results');
+    // Bail out if we're not on the blog index page. The astro:page-load
+    // listener persists across View Transitions, so it also fires on other pages.
+    if (!searchIndexEl || !searchInput || !perPageSelect || !pagination || !noResults) return;
+    const tagButtons = document.querySelectorAll('.tag-btn');
+    const cards = Array.from(document.querySelectorAll('.blog-card'));
+    const index = JSON.parse(searchIndexEl.textContent);
 
     // Build a lookup by permalink
     const indexMap = {};

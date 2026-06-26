@@ -165,7 +165,7 @@ const esPath = lang === 'en' ? `/es${pathname}${hash}` : pathname + hash;
     const path = window.location.pathname.replace(/\/$/, '') || '/';
     const isHomePage = path === '' || path === '/' || path === '/es';
     const isBlogPage = path.startsWith('/blog') || path.startsWith('/es/blog');
-    const isAboutPage = path.startsWith('/about') || path.startsWith('/es/about');
+    const isAboutPage = path.startsWith('/about') || path.startsWith('/es/about') || path.startsWith('/experience') || path.startsWith('/es/experience');
 
     if (isAboutPage) {
       setActive('about');
