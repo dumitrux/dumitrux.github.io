@@ -22,7 +22,8 @@ yarn-error.log*
 .astro/
 
 # editor
-.vscode/
+.vscode/*
+!.vscode/mcp.json
 *.swp
 *.swo
 *~
