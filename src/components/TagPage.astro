@@ -54,7 +54,7 @@ const slugify = (s: string) => s.toLowerCase().replace(/[\s/]+/g, '-');
               <img
                 src={post.data.thumbnail}
                 alt={post.data.title}
-                class="w-full h-48 object-cover"
+                class="w-full aspect-[2/1] object-cover"
                 loading="lazy"
               />
             )}

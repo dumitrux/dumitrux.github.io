@@ -33,7 +33,7 @@ const posts = (await getCollection('blog'))
             <img
               src={post.data.thumbnail}
               alt={post.data.title}
-              class="w-full h-40 object-cover"
+              class="w-full aspect-[2/1] object-cover"
               loading="lazy"
             />
           )}
